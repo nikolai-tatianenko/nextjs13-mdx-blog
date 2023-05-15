@@ -1,5 +1,5 @@
 {
-  "entryPoints": ["./src/components"],
-  "out": "./docs",
+  "entryPoints": ["./src/components", "./src/components/UI/Menu/Menu.tsx"],
+  "out": "./docs/generated",
   "name": "MDX Next.js Project Documentation"
 }
