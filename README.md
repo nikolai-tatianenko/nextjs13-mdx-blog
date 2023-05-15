@@ -1,1 +1,3 @@
-# nextjs13-mdx-blog
+Next.js 13.4 blog based on MDX
+
+- [] next-mdx-remote
