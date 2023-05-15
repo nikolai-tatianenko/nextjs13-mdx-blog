@@ -1,7 +1,7 @@
-import type { Preview } from '@storybook/react';
-// .storybook/preview.js
+// .storybook/preview.tsx
 
-import '../src/tailwind.css';
+// Replace your-framework with the framework you are using (e.g., react, vue3)
+import { Preview } from '@storybook/react';
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
