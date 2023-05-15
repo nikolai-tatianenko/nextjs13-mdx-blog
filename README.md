@@ -1,3 +1,9 @@
 Next.js 13.4 blog based on MDX
 
-- [] next-mdx-remote
+- [x] next-mdx-remote
+- [ ] rss
+- [ ] xmlsitemap
+- [ ] Components
+- - [ ] Header
+- - [ ] Layout
+- - [ ] Footer
