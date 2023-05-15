@@ -8,12 +8,11 @@ import Page from '@/components/Page';
  * @param {string} type - The type of the MDX files.
  * @returns {string[]} - An array of MDX file paths.
  */
-export async function generateStaticParams () {
-  const pages = getMdxFiles("page");
+export async function generateStaticParams() {
+  const pages = getMdxFiles('page');
   return pages.map((val: string) => {
-      return { page: val };
-    }
-  );
+    return { page: val };
+  });
 }
 
 /**
@@ -24,7 +23,7 @@ export async function generateStaticParams () {
  * @returns {ReactElement} - The rendered dynamic page.
  */
 const DynamicPage = async ({ params }: { params: { page: string } }) => {
-  const pageContent = await getPage("page", params.page);
+  const pageContent = await getPage('page', params.page);
   return <Page pageContent={pageContent} />;
 };
 

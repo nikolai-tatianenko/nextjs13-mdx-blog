@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 /**
  * The properties for the MDX content component.
@@ -12,8 +12,7 @@ type MdxContentProps = {
 /**
  * A mapping of MDX components used for rendering.
  */
-const mdxComponentsMap = {
-};
+const mdxComponentsMap = {};
 
 /**
  * Renders the MDX content wrapped in an MDXRemote component.

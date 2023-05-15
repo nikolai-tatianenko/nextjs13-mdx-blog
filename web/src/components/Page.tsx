@@ -8,8 +8,9 @@ import { Frontmatter, Post } from '@/types/Page';
  * @param {PageContent} props.pageContent - The content of the page.
  * @returns {JSX.Element} - The rendered page component.
  */
-const Page: React.FC<{ pageContent:  Post<Frontmatter>  }> = ({ pageContent }) => {
-
+const Page: React.FC<{ pageContent: Post<Frontmatter> }> = ({
+  pageContent,
+}) => {
   return (
     <div className="max-w-3xl mx-auto">
       <header className="mb-4">
@@ -17,7 +18,9 @@ const Page: React.FC<{ pageContent:  Post<Frontmatter>  }> = ({ pageContent }) =
           {pageContent.frontmatter.title}
         </h1>
         <p className="text-sm">
-          <time dateTime="2008-02-14 20:00">{pageContent.frontmatter.creationDate}</time>
+          <time dateTime="2008-02-14 20:00">
+            {pageContent.frontmatter.creationDate}
+          </time>
         </p>
       </header>
       <main>

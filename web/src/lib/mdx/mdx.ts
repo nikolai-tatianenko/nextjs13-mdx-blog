@@ -10,7 +10,7 @@ const root = process.cwd();
  * @param {string} [locale=''] - The locale of the files (optional).
  * @returns {string[]} - An array containing the prepared file names.
  */
-export function getMdxFiles (type = 'page', locale = '') {
+export function getMdxFiles(type = 'page', locale = '') {
   const prefixPaths = path.join(root, 'data', type);
 
   // Retrieve all files recursively
@@ -20,8 +20,11 @@ export function getMdxFiles (type = 'page', locale = '') {
   const filteredFiles = filterFileByLocale(files, locale, ['mdx', 'md']);
 
   // Prepare file names
-  const preparedFiles = prepareFileNames(filteredFiles, ['mdx', 'md'],
-    prefixPaths);
+  const preparedFiles = prepareFileNames(
+    filteredFiles,
+    ['mdx', 'md'],
+    prefixPaths
+  );
 
   return preparedFiles;
 }
@@ -34,18 +37,21 @@ export function getMdxFiles (type = 'page', locale = '') {
  * @param {string[]} [extension=['md']] - The file extensions to filter by.
  * @returns {string[]} - An array containing the filtered file paths.
  */
-function filterFileByLocale (files: string[], locale = '', extension = ['md']) {
+function filterFileByLocale(files: string[], locale = '', extension = ['md']) {
   return files.filter((filePath) => {
     const fileExtension = path.extname(filePath).replace('.', '');
     const baseName = path.basename(filePath, '.' + fileExtension);
     const test = (baseName.match(/\./g) || []).length;
 
     if (locale === '') {
-      return (baseName.match(/\./g) || []).length === 0 &&
-        extension.includes(fileExtension);
+      return (
+        (baseName.match(/\./g) || []).length === 0 &&
+        extension.includes(fileExtension)
+      );
     } else {
-      return baseName.endsWith(`.${locale}`) &&
-        extension.includes(fileExtension);
+      return (
+        baseName.endsWith(`.${locale}`) && extension.includes(fileExtension)
+      );
     }
   });
 }
@@ -58,8 +64,11 @@ function filterFileByLocale (files: string[], locale = '', extension = ['md']) {
  * @param {string} prefixPaths - The prefix path to remove from file paths.
  * @returns {string[]} - An array containing the prepared file names.
  */
-function prepareFileNames (
-  files: string[], extension = ['mdx', 'md'], prefixPaths: string) {
+function prepareFileNames(
+  files: string[],
+  extension = ['mdx', 'md'],
+  prefixPaths: string
+) {
   return files.map((file) => {
     const filePath = file.slice(prefixPaths.length + 1).replace(/\\/g, '/');
     const fileExtension = path.extname(filePath);

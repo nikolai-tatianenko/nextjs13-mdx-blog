@@ -7,7 +7,6 @@ import fs from 'fs';
 import path from 'path';
 
 const getAllFilesRecursively = (folder) => {
-
   /**
    * Retrieve all files and directories within the specified folder.
    * @type {fs.Dirent[]}
@@ -19,7 +18,7 @@ const getAllFilesRecursively = (folder) => {
    * @param {string} folderPath - The path of the folder to search.
    * @returns {string[]} - An array containing the paths of all the files found.
    */
-  const filePaths = entries.flatMap(entry => {
+  const filePaths = entries.flatMap((entry) => {
     const fullPath = path.join(folder, entry.name);
 
     if (entry.isFile()) {

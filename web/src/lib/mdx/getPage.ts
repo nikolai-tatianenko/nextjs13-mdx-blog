@@ -13,7 +13,11 @@ import { Frontmatter, Post } from '@/types/Page';
 
 const root = process.cwd();
 
-export async function getPage(type: string, file: string, fileExtension = 'mdx'): Promise<Post<Frontmatter>> {
+export async function getPage(
+  type: string,
+  file: string,
+  fileExtension = 'mdx'
+): Promise<Post<Frontmatter>> {
   /**
    * Construct the filepath for the given file.
    */
