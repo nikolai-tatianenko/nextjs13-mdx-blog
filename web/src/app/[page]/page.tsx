@@ -1,6 +1,6 @@
 import { getMdxFiles } from '../../lib/mdx/mdx';
 import { getPage } from '@/lib/mdx/getPage';
-import Page from '@/components/Page';
+import Page from '@/components/Layouts/Page';
 
 /**
  * Retrieves an array of MDX files for a given type.
