@@ -7,7 +7,6 @@ import fs from 'fs';
 import path from 'path';
 
 const getAllFilesRecursively = (folder) => {
-  console.log('folder', folder);
 
   /**
    * Retrieve all files and directories within the specified folder.

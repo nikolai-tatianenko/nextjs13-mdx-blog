@@ -1,5 +1,5 @@
-import path from 'path'
-import getAllFilesRecursively from '../files/files'
+import path from 'path';
+import getAllFilesRecursively from '../files/files';
 
 const root = process.cwd();
 
@@ -10,7 +10,7 @@ const root = process.cwd();
  * @param {string} [locale=''] - The locale of the files (optional).
  * @returns {string[]} - An array containing the prepared file names.
  */
-export function getMdxFiles(type, locale = '') {
+export function getMdxFiles (type = 'page', locale = '') {
   const prefixPaths = path.join(root, 'data', type);
 
   // Retrieve all files recursively
@@ -20,7 +20,8 @@ export function getMdxFiles(type, locale = '') {
   const filteredFiles = filterFileByLocale(files, locale, ['mdx', 'md']);
 
   // Prepare file names
-  const preparedFiles = prepareFileNames(filteredFiles, ['mdx', 'md'], prefixPaths);
+  const preparedFiles = prepareFileNames(filteredFiles, ['mdx', 'md'],
+    prefixPaths);
 
   return preparedFiles;
 }
@@ -33,7 +34,7 @@ export function getMdxFiles(type, locale = '') {
  * @param {string[]} [extension=['md']] - The file extensions to filter by.
  * @returns {string[]} - An array containing the filtered file paths.
  */
-function filterFileByLocale(files, locale = '', extension = ['md']) {
+function filterFileByLocale (files: string[], locale = '', extension = ['md']) {
   return files.filter((filePath) => {
     const fileExtension = path.extname(filePath).replace('.', '');
     const baseName = path.basename(filePath, '.' + fileExtension);
@@ -57,7 +58,8 @@ function filterFileByLocale(files, locale = '', extension = ['md']) {
  * @param {string} prefixPaths - The prefix path to remove from file paths.
  * @returns {string[]} - An array containing the prepared file names.
  */
-function prepareFileNames(files, extension = ['mdx', 'md'], prefixPaths) {
+function prepareFileNames (
+  files: string[], extension = ['mdx', 'md'], prefixPaths: string) {
   return files.map((file) => {
     const filePath = file.slice(prefixPaths.length + 1).replace(/\\/g, '/');
     const fileExtension = path.extname(filePath);
