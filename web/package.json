@@ -8,14 +8,14 @@
     "start:html": "npx http-server out",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint-format": "next lint -- --fix && npm run format"
   },
   "dependencies": {
     "@types/node": "20.1.4",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
-    "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "next": "13.4.2",
     "next-mdx-remote": "^4.4.1",
@@ -26,6 +26,9 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8"
   }
 }

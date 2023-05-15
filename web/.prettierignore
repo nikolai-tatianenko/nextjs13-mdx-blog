@@ -1,0 +1,12 @@
+# Ignore all files in the "node_modules" directory
+node_modules/
+
+# Ignore specific files
+.next
+out/
+public/
+
+# Ignore all files with a specific extension
+*.log
+package-lock.json
+
