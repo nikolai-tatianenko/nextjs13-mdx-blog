@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "lint-format": "next lint -- --fix && prettier --write .",
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "serve": "next start",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@types/node": "20.1.4",
