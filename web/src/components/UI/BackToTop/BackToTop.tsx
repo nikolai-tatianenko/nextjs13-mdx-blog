@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import useScrollPosition from './hooks/useScrollPosition';
-const BackToTopButton: React.FC = () => {
+export const BackToTop: React.FC = () => {
   const { showButton, scrollPosition } = useScrollPosition(300);
 
   const handleBackToTop = () => {
@@ -13,13 +13,13 @@ const BackToTopButton: React.FC = () => {
     window.scrollTo({ top: fullHeight, behavior: 'smooth' });
   };
 
-  const BackToTop: React.FC<{
+  const BackToTopButton: React.FC<{
     showButton: boolean;
     handleBackToTop: () => void;
     className?: string;
   }> = ({ showButton, handleBackToTop, className = '' }) => (
     <button
-      className={`fixed bottom-4 right-4 p-2 rounded-full ${className} ${
+      className={`back2top border-b-gray-200 bg-gray-300 fixed bottom-4 right-4 p-2 rounded-full ${className} ${
         showButton ? 'block' : 'hidden'
       }`}
       onClick={handleBackToTop}
@@ -45,14 +45,17 @@ const BackToTopButton: React.FC = () => {
 
   return (
     <>
-      <BackToTop
+      <BackToTopButton
         className="rotate-180"
         showButton={scrollPosition > 10 && !showButton}
         handleBackToTop={handleScrollToBottom}
       />
-      <BackToTop showButton={showButton} handleBackToTop={handleBackToTop} />
+      <BackToTopButton
+        showButton={showButton}
+        handleBackToTop={handleBackToTop}
+      />
     </>
   );
 };
 
-export default BackToTopButton;
+export default BackToTop;
