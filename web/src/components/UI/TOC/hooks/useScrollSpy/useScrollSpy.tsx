@@ -13,6 +13,14 @@ export const useScrollspy = (
 ): string | null => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
+  useEffect(() => {
+    const handleScroll = () => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [targetIds, callback]);
+
   return activeId;
 };
 
