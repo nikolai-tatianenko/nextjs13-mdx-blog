@@ -15,6 +15,38 @@ export const useScrollspy = (
 
   useEffect(() => {
     const handleScroll = () => {
+      const targets = targetIds.map((id) => document.getElementById(id));
+
+      let activeTarget: HTMLElement | null = null;
+
+      for (let i = targets.length - 1; i >= 0; i--) {
+        const target = targets[i];
+        if (!target) continue;
+
+        const rect = target.getBoundingClientRect();
+
+        const isVisible =
+          rect.top >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight);
+
+        const isPartiallyVisible =
+          rect.top < window.innerHeight && rect.bottom >= 0;
+
+        if ((isVisible || isPartiallyVisible) && !activeTarget) {
+          activeTarget = target;
+          break;
+        }
+      }
+
+      if (activeTarget) {
+        setActiveId(activeTarget.id);
+        if (callback) {
+          callback(activeTarget.id);
+        }
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
