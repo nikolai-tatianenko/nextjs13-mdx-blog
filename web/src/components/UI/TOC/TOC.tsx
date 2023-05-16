@@ -101,6 +101,51 @@ const TableOfContents: React.FC = () => {
   const toggleCollapse = () => {
     setIsCollapsed((prevCollapsed) => !prevCollapsed);
   };
+
+  if (!isCollapsible) {
+    return (
+      <div>
+        <div className="mb-4 flex items-center gap-4">
+          <div>Table of contents</div>
+        </div>
+        <div>
+          {headings.map((heading) => (
+            <TableOfContentsItem
+              key={heading.id}
+              id={heading.id}
+              level={heading.level}
+              title={heading.title}
+              isActive={heading.id === activeId}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="lg:hidden fixed bottom-0 w-full bg-white opacity-60">
+      <div
+        className="mb-4 flex items-center gap-4 cursor-pointer"
+        onClick={toggleCollapse}
+      >
+        <div>Table of contents</div>
+      </div>
+      {!isCollapsed && (
+        <div>
+          {headings.map((heading) => (
+            <TableOfContentsItem
+              key={heading.id}
+              id={heading.id}
+              level={heading.level}
+              title={heading.title}
+              isActive={heading.id === activeId}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default TableOfContents;
