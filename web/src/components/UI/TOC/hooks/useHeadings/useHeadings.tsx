@@ -17,6 +17,26 @@ export const useHeadings = (
 ): Heading[] => {
   const [headings, setHeadings] = useState<Heading[]>([]);
 
+  const getHeaders = (): void => {
+    const elements = Array.from(
+      document.querySelectorAll<HTMLHeadingElement>(headingQuery)
+    ).reduce<Heading[]>((acc, element) => {
+      if (element.id) {
+        acc.push({
+          id: element.id,
+          title: element.textContent || '',
+          level: Number(element.tagName.substring(1)),
+        });
+      }
+      return acc;
+    }, []);
+
+    setHeadings(elements);
+  };
+  useEffect(() => {
+    getHeaders();
+  }, []);
+
   return headings;
 };
 
