@@ -1,5 +1,6 @@
 import { MdxContentWrapper } from '@/components/MdxContentWrapper';
 import { Frontmatter, Post } from '@/types/Page';
+import { Heading } from '@/components/UI';
 
 /**
  * Renders a page component with the specified content.
@@ -14,18 +15,21 @@ const Page: React.FC<{ pageContent: Post<Frontmatter> }> = ({
   return (
     <div className="max-w-3xl mx-auto">
       <header className="mb-4">
-        <h1 className="text-4xl font-bold mb-2 sm:text-5xl md:text-6xl lg:text-7xl">
+        <Heading
+          level={1}
+          className="text-4xl font-bold mb-2 sm:text-5xl md:text-6xl lg:text-7xl"
+        >
           {pageContent.frontmatter.title}
-        </h1>
+        </Heading>
         <p className="text-sm">
           <time dateTime="2008-02-14 20:00">
             {pageContent.frontmatter.creationDate}
           </time>
         </p>
       </header>
-      <main>
+      <article>
         <MdxContentWrapper source={pageContent.serialized} />
-      </main>
+      </article>
     </div>
   );
 };
