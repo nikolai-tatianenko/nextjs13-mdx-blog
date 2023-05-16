@@ -41,6 +41,23 @@ const TableOfContents: React.FC = () => {
       setActiveId(newActiveId);
     }
   );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsCollapsible(window.innerWidth < 1024);
+    };
+
+    handleResize(); // Check initial screen width
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const toggleCollapse = () => {
+    setIsCollapsed((prevCollapsed) => !prevCollapsed);
+  };
 };
 
 export default TableOfContents;
