@@ -1,7 +1,17 @@
 // .storybook/preview.tsx
 
 // Replace your-framework with the framework you are using (e.g., react, vue3)
-import { Preview } from '@storybook/react';
+import { Preview } from '@storybook/nextjs';
+
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+} from '@storybook/blocks';
+
 import {
   DEFAULT_THEME,
   withTailwindTheme,
@@ -44,6 +54,19 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+    },
+    // @todo provide detault docs structure
+    docs: {
+      page: () => (
+        <div>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <Controls />
+          <Stories />
+        </div>
+      ),
     },
   },
 };
