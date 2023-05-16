@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 /**
  * Props for the BackToTopButton component.

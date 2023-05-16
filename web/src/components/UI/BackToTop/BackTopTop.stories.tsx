@@ -79,7 +79,7 @@ const BackTopTopComp = () => (
  * The meta information for the BackToTopButton storybook.
  */
 const meta: Meta = {
-  title: 'UI/BackToTop',
+  title: 'UI/Components/BackToTop',
   component: BackTopTopComp,
   tags: ['autodocs', 'docsPage'],
 };
