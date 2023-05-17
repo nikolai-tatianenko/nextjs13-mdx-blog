@@ -88,7 +88,7 @@ const Menu: React.FC = ({
   console.log({ isMenuOpen });
 
   return (
-    <nav className={'bg-white border-gray-200 dark:bg-gray-700'}>
+    <nav className={'border-gray-200 dark:bg-gray-700'}>
       <div className="flex flex-wrap items-center max-w-screen-xl justify-between mx-auto p-4">
         <Logo />
         <button
