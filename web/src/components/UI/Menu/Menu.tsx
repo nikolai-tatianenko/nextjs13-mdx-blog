@@ -6,9 +6,9 @@
  * @description Renders a navigation menu with menu items
  */
 
-import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import React, { useState } from 'react';
 
 /**
  * Represents a menu item with a path and label.

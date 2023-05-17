@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 /**
  * Props for the Header component.
  */
-type HeaderProps = {
+export type HeaderProps = {
   /**
    * The level of the header (1 to 6).
    */
@@ -24,11 +24,14 @@ type HeaderProps = {
 
 /**
  * Generates an ID from the given text by converting it to lowercase and replacing non-alphanumeric characters with hyphens.
- * @param text The text to generate the ID from.
+ * @param text | null The text to generate the ID from.
  * @returns The generated ID.
  */
-const prepareId = (text = ''): string => {
-  return text
+const prepareId = (text: React.ReactNode = ''): string => {
+  if (typeof text !== 'string') {
+    text = '';
+  }
+  return String(text)
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');

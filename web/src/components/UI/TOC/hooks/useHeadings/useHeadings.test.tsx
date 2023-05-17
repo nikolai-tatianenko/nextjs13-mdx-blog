@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useHeadings, Heading } from './useHeadings';
+import { Heading, useHeadings } from './useHeadings';
 
 describe('useHeadings', () => {
   test('returns array of headings', () => {
