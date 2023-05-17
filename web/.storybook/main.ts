@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-docs', // 👈 Also add this
+    '@storybook/addon-jest',
     {
       name: '@storybook/addon-styling',
       options: {

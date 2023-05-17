@@ -19,7 +19,8 @@
     "watch:css": "npx tailwindcss -i ./src/tailwind.css -o ./public/tailwind.css --watch",
     "watch:storybook": "storybook dev -p 6006",
     "serve": "next start",
-    "analyze": "cross-env ANALYZE=true next build"
+    "analyze": "cross-env ANALYZE=true next build",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
     "@types/node": "20.1.4",
@@ -39,6 +40,7 @@
     "@storybook/addon-docs": "^7.0.18",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
+    "@storybook/addon-jest": "^7.0.8",
     "@storybook/addon-links": "^7.0.12",
     "@storybook/addon-styling": "^1.0.8",
     "@storybook/blocks": "^7.0.12",
