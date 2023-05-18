@@ -18,6 +18,7 @@ type TableOfContentsItemProps = {
  */
 const TableOfContentsItem: React.FC<TableOfContentsItemProps> = React.memo(
   ({ id, level, title, isActive }) => {
+
     const headerClassname =
       'block border-b-2 p-2 m-2 w-full text-md mb-3 w-[50%] text-center';
     const focusItemClass = 'font-bold text-gray-900 border-l-gray-900';
@@ -124,9 +125,9 @@ const TableOfContents: React.FC = () => {
   }
 
   return (
-    <div className="lg:hidden fixed bottom-0 w-full bg-white opacity-60">
+    <div className="fixed bottom-0 w-full bg-white opacity-60 lg:hidden">
       <div
-        className="mb-4 flex items-center gap-4 cursor-pointer"
+        className="mb-4 flex cursor-pointer items-center gap-4"
         onClick={toggleCollapse}
       >
         <div>Table of contents</div>
