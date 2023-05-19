@@ -1,7 +1,28 @@
-import path from 'path';
-import getAllFilesRecursively from '../files/files';
-
 const root = process.cwd();
+import { Frontmatter } from '@/types/Page';
+import { promises as fs } from 'fs';
+import { serialize } from 'next-mdx-remote/serialize';
+import path from 'path';
+import { getAllFilesRecursively } from '../files/files';
+//getFilesInFolder
+export async function getMdxFileContent(filePath: string) {
+  // Read the file from the filesystem.
+  const raw = await fs.readFile(filePath, 'utf-8');
+
+  // Serialize the MDX content and parse the frontmatter.
+  const serialized = await serialize(raw, {
+    parseFrontmatter: true,
+  });
+
+  // Typecast the frontmatter to the correct type
+  const frontmatter = serialized.frontmatter as Frontmatter;
+
+  // Return the serialized content and frontmatter
+  return {
+    frontmatter,
+    serialized,
+  };
+}
 
 /**
  * Retrieves MDX files based on the specified type and locale.
