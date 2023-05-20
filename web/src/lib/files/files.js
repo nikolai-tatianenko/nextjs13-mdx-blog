@@ -6,7 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const getAllFilesRecursively = (folder) => {
+export const getAllFilesRecursively = (folder) => {
   /**
    * Retrieve all files and directories within the specified folder.
    * @type {fs.Dirent[]}
@@ -33,4 +33,32 @@ const getAllFilesRecursively = (folder) => {
   return filePaths;
 };
 
+export function getFilesInFolder(folderPath, level = 0) {
+  const files = [];
+
+  // Read the contents of the folder
+  const folderContents = fs.readdirSync(folderPath);
+
+  // Iterate over each item in the folder
+  for (const item of folderContents) {
+    // Get the full path of the item
+    const itemPath = path.join(folderPath, item);
+
+    // Retrieve the item's stats
+    const stats = fs.statSync(itemPath);
+
+    if (stats.isFile()) {
+      // Add file information to the array
+      files.push({
+        filepath: itemPath,
+        level: level,
+      });
+    } else if (stats.isDirectory()) {
+      // Recursively call the function for nested folders
+      files.push(...getFilesInFolder(itemPath, level + 1));
+    }
+  }
+
+  return files;
+}
 export default getAllFilesRecursively;
