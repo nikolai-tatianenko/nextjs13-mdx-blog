@@ -6,9 +6,10 @@
  * @description Renders a navigation menu with menu items
  */
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import React, { useState } from 'react';
+import { menuItemsDefault } from "@/components/UI/Menu/MenuItemsDefault";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React,{ useState } from "react";
 
 /**
  * Represents a menu item with a path and label.
@@ -22,13 +23,6 @@ interface MenuItem {
   path: string;
   label: string;
 }
-
-// @todo move to configs.
-const menuItemsDefault = [
-  { path: '/', label: 'Home' },
-  { path: '/page1', label: 'Page1' },
-  { path: '/page2', label: 'Page2' },
-];
 
 /**
  * Renders the logo component with a link to the homepage.
@@ -88,13 +82,13 @@ const Menu: React.FC = ({
   console.log({ isMenuOpen });
 
   return (
-    <nav className={'bg-white border-gray-200 dark:bg-gray-700'}>
-      <div className="flex flex-wrap items-center max-w-screen-xl justify-between mx-auto p-4">
+    <nav className={'border-gray-200 bg-white dark:bg-gray-700'}>
+      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <Logo />
         <button
           aria-controls="navbar-default"
           aria-expanded="false"
-          className="inline-flex items-center p-1 ml-3 text-sm text-gray-500 rounded md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="ml-3 inline-flex items-center rounded p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
           data-collapse-toggle="navbar-default"
           type="button"
           onClick={isMenuOpen ? closeMenu : openMenu}
@@ -106,7 +100,7 @@ const Menu: React.FC = ({
           className={`${isMenuOpen ? '' : 'hidden'} w-full md:block md:w-auto`}
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col p-3 md:p-1 mt-3 rounded-lg md:flex-row">
+          <ul className="mt-3 flex flex-col rounded-lg p-3 font-medium md:flex-row md:p-1">
             {menuItems.map((item, index) => (
               <li key={index} className={'p-3'}>
                 <Link

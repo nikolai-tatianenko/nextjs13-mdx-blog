@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import useScrollPosition from './hooks/useScrollPosition';
 import { BackToTopButton } from './components/BackToTopButton';
+import useScrollPosition from './hooks/useScrollPosition';
 
 /**
  * Props for the BackToTop component.
