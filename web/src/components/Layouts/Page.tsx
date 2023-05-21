@@ -1,6 +1,6 @@
 import { MdxContentWrapper } from '@/components/MdxContentWrapper';
-import { Frontmatter, Post } from '@/types/Page';
 import { Heading } from '@/components/UI';
+import { Frontmatter, Post } from '@/types/Page';
 
 /**
  * Renders a page component with the specified content.
@@ -13,7 +13,7 @@ const Page: React.FC<{ pageContent: Post<Frontmatter> }> = ({
   pageContent,
 }) => {
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="mx-auto max-w-3xl">
       <header className="mb-4">
         <Heading
           level={1}
