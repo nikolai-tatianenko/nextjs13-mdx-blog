@@ -1,6 +1,5 @@
-import { getMdxFiles } from '../../lib/mdx/mdx';
-import { getPage } from '@/lib/mdx/getPage';
 import Page from '@/components/Layouts/Page';
+import { getAllPagesNames, getPage } from '@/lib/mdx/getPage';
 
 /**
  * Retrieves an array of MDX files for a given type.
@@ -9,7 +8,7 @@ import Page from '@/components/Layouts/Page';
  * @returns {string[]} - An array of MDX file paths.
  */
 export async function generateStaticParams() {
-  const pages = getMdxFiles('page');
+  const pages = await getAllPagesNames();
   return pages.map((val: string) => {
     return { page: val };
   });
