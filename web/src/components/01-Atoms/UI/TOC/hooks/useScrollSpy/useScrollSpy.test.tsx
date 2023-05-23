@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { act } from 'react-dom/test-utils';
-import useScrollspy from './useScrollspy';
+import useScrollspy from './useScrollSpy';
 
 describe('useScrollspy', () => {
   test('should set activeId correctly', () => {

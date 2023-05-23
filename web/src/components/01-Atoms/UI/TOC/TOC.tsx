@@ -2,7 +2,7 @@
 import cx from 'classnames';
 import React, { useEffect, useState } from 'react';
 import { useHeadings, useScrollspy } from './hooks';
-
+import { usePathname } from 'next/navigation';
 type TableOfContentsItemProps = {
   id: string;
   level: number;
@@ -69,6 +69,8 @@ const TableOfContentsItem: React.FC<TableOfContentsItemProps> = React.memo(
  * @returns {JSX.Element} - Rendered component.
  */
 const TableOfContents: React.FC = () => {
+  const pathname = usePathname();
+
   const headings = useHeadings('article :is(h2, h3, h4, h5, h6)');
 
   const [activeId, setActiveId] = useState<string | undefined>(headings[0]?.id);

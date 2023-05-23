@@ -6,7 +6,7 @@
  * @description Renders a navigation menu with menu items
  */
 
-import { menuItemsDefault } from "@/components/UI/Menu/MenuItemsDefault";
+import { menuItemsDefault } from "@/components/01-Atoms/UI/Menu/MenuItemsDefault";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React,{ useState } from "react";
@@ -39,6 +39,12 @@ const Logo = () => {
   );
 };
 
+const defaultClassNames = {
+  wrapper: "flex flex-col items-center justify-center w-full h-full",
+  "menu-nav": "flex flex-col items-center justify-center w-full h-full",
+  "menu-item": "block py-2 text-center text-gray-700 dark:text-gray-200",
+  "menu-link": "block py-2 text-center text-gray-700 dark:text-gray-200",
+}
 /**
  * Renders a navigation menu with menu items.
  *
@@ -50,6 +56,7 @@ const Logo = () => {
 
 const Menu: React.FC = ({
   menuItems = menuItemsDefault,
+  classNames = defaultClassNames
 }: {
   menuItems?: MenuItem[];
 }) => {
