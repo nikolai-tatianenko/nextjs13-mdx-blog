@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 /**
  * @file Menu component
@@ -6,10 +6,12 @@
  * @description Renders a navigation menu with menu items
  */
 
-import { menuItemsDefault } from "@/components/01-Atoms/UI/Menu/MenuItemsDefault";
+import {
+  menuItemsDefault
+} from "@/components/01-Atoms/UI/Menu/MenuItemsDefault";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React,{ useState } from "react";
+import React, { useState } from "react";
 
 /**
  * Represents a menu item with a path and label.
@@ -33,8 +35,8 @@ interface MenuItem {
 
 const Logo = () => {
   return (
-    <Link href={'/'}>
-      <strong className={'text-black dark:text-white'}>SiteName</strong>
+    <Link href={"/"}>
+      <strong className={"text-black dark:text-white"}>SiteName</strong>
     </Link>
   );
 };
@@ -43,8 +45,8 @@ const defaultClassNames = {
   wrapper: "flex flex-col items-center justify-center w-full h-full",
   "menu-nav": "flex flex-col items-center justify-center w-full h-full",
   "menu-item": "block py-2 text-center text-gray-700 dark:text-gray-200",
-  "menu-link": "block py-2 text-center text-gray-700 dark:text-gray-200",
-}
+  "menu-link": "block py-2 text-center text-gray-700 dark:text-gray-200"
+};
 /**
  * Renders a navigation menu with menu items.
  *
@@ -84,13 +86,14 @@ const Menu: React.FC = ({
   };
 
   const listItemClass =
-    'block py-3 pl-2 pr-3 text-gray-900 rounded  dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 hover:underline-offset-1 dark:hover:text-white md:dark:hover:bg-transparent';
+    "block py-3 pl-2 pr-3 text-gray-900 rounded  dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 hover:underline-offset-1 dark:hover:text-white md:dark:hover:bg-transparent";
 
   console.log({ isMenuOpen });
 
   return (
-    <nav className={'border-gray-200 bg-white dark:bg-gray-700'}>
-      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+    <nav className={"border-gray-200 bg-white dark:bg-gray-700"}>
+      <div
+        className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <Logo />
         <button
           aria-controls="navbar-default"
@@ -101,15 +104,16 @@ const Menu: React.FC = ({
           onClick={isMenuOpen ? closeMenu : openMenu}
         >
           <span className="sr-only">Open main menu</span>
-          <span className={'text-xl'}>{isMenuOpen ? 'x' : '≡'}</span>
+          <span className={"text-xl"}>{isMenuOpen ? "x" : "≡"}</span>
         </button>
         <div
-          className={`${isMenuOpen ? '' : 'hidden'} w-full md:block md:w-auto`}
+          className={`${isMenuOpen ? "" : "hidden"} w-full md:block md:w-auto`}
           id="navbar-default"
         >
-          <ul className="mt-3 flex flex-col rounded-lg p-3 font-medium md:flex-row md:p-1">
+          <ul
+            className="mt-3 flex flex-col rounded-lg p-3 font-medium md:flex-row md:p-1">
             {menuItems.map((item, index) => (
-              <li key={index} className={'p-3'}>
+              <li key={index} className={"p-3"}>
                 <Link
                   className={
                     item.path === pathname

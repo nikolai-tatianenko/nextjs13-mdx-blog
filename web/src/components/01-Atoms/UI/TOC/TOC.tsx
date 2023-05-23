@@ -1,8 +1,9 @@
-'use client';
-import cx from 'classnames';
-import React, { useEffect, useState } from 'react';
-import { useHeadings, useScrollspy } from './hooks';
-import { usePathname } from 'next/navigation';
+"use client";
+import cx from "classnames";
+import React, { useEffect, useState } from "react";
+import { useHeadings, useScrollspy } from "./hooks";
+import { usePathname } from "next/navigation";
+
 type TableOfContentsItemProps = {
   id: string;
   level: number;
@@ -20,27 +21,25 @@ const TableOfContentsItem: React.FC<TableOfContentsItemProps> = React.memo(
   ({ id, level, title, isActive }) => {
 
     const headerClassname =
-      'block border-b-2 p-2 m-2 w-full text-md mb-3 w-[50%] text-center';
-    const focusItemClass = 'font-bold text-gray-900 border-l-gray-900';
+      "block border-b-2 p-2 m-2 w-full text-md mb-3 w-[50%] text-center";
+    const focusItemClass = "font-bold text-gray-900 border-l-gray-900";
 
-    const hoverItemClass = focusItemClass
-      .split(' ')
-      .map((val) => `hover:${val}`)
-      .join(' ');
+    const hoverItemClass = focusItemClass.split(" ").
+      map((val) => `hover:${val}`).
+      join(" ");
 
-    const activeItemClass = focusItemClass
-      .split(' ')
-      .map((val) => `active:${val}`)
-      .join(' ');
+    const activeItemClass = focusItemClass.split(" ").
+      map((val) => `active:${val}`).
+      join(" ");
 
     const linkClassNames = cx(
       `level-${level}`,
-      'block border-l-2 border-accent-2 p-2 text-sm transition-all duration-500 focus:outline-none focus:ring hover:bg-gray-200',
+      "block border-l-2 border-accent-2 p-2 text-sm transition-all duration-500 focus:outline-none focus:ring hover:bg-gray-200",
       hoverItemClass,
       activeItemClass,
       {
         [`${focusItemClass}`]: isActive,
-        'active-toc-item': isActive,
+        "active-toc-item": isActive
       }
     );
 
@@ -71,7 +70,7 @@ const TableOfContentsItem: React.FC<TableOfContentsItemProps> = React.memo(
 const TableOfContents: React.FC = () => {
   const pathname = usePathname();
 
-  const headings = useHeadings('article :is(h2, h3, h4, h5, h6)');
+  const headings = useHeadings("article :is(h2, h3, h4, h5, h6)");
 
   const [activeId, setActiveId] = useState<string | undefined>(headings[0]?.id);
   const [isCollapsible, setIsCollapsible] = useState(true);
@@ -95,9 +94,9 @@ const TableOfContents: React.FC = () => {
 
     handleResize(); // Check initial screen width
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { Heading } from './UI';
+import { Heading } from './01-Atoms/UI';
 
 /**
  * The properties for the MDX content component.

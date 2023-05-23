@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 /**
  * Custom hook to track the active element in the viewport based on scroll position.
@@ -28,7 +28,7 @@ export const useScrollspy = (
         const isVisible =
           rect.top >= 0 &&
           rect.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight);
+          (window.innerHeight || document.documentElement.clientHeight);
 
         const isPartiallyVisible =
           rect.top < window.innerHeight && rect.bottom >= 0;
@@ -47,9 +47,9 @@ export const useScrollspy = (
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [targetIds, callback]);
 

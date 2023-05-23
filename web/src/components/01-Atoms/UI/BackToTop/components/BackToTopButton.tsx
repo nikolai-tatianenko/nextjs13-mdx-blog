@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * Props for the BackToTopButton component.
@@ -14,11 +14,11 @@ type BackToTopButtonProps = {
 export const BackToTopButton: React.FC<BackToTopButtonProps> = ({
   showButton,
   handleBackToTop,
-  className = '',
+  className = ""
 }) => (
   <button
     className={`back2top fixed bottom-4 right-4 rounded-full border-b-gray-200 bg-gray-300 p-2 ${className} ${
-      showButton ? 'block' : 'hidden'
+      showButton ? "block" : "hidden"
     }`}
     onClick={handleBackToTop}
   >

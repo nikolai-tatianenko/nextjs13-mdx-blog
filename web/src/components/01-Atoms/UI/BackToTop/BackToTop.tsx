@@ -1,7 +1,7 @@
-'use client';
-import React from 'react';
-import { BackToTopButton } from './components/BackToTopButton';
-import useScrollPosition from './hooks/useScrollPosition';
+"use client";
+import React from "react";
+import { BackToTopButton } from "./components/BackToTopButton";
+import useScrollPosition from "./hooks/useScrollPosition";
 
 /**
  * Props for the BackToTop component.
@@ -18,12 +18,12 @@ export const BackToTop: React.FC<BackToTopProps> = ({ threshold = 300 }) => {
     useScrollPosition(threshold);
 
   const handleBackToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleScrollToBottom = () => {
     const fullHeight = document.documentElement.scrollHeight;
-    window.scrollTo({ top: fullHeight, behavior: 'smooth' });
+    window.scrollTo({ top: fullHeight, behavior: "smooth" });
   };
 
   return (
