@@ -1,4 +1,4 @@
-import Page from '@/components/Layouts/Page';
+import Page from '@/components/04-Templates/Layouts/Page';
 import { getAllPagesNames, getPage } from '@/lib/mdx/getPage';
 
 /**
