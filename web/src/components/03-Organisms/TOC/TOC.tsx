@@ -3,6 +3,7 @@ import cx from "classnames";
 import React, { useEffect, useState } from "react";
 import { useHeadings, useScrollspy } from "./hooks";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 
 type TableOfContentsItemProps = {
   id: string;
@@ -69,9 +70,10 @@ const TableOfContentsItem: React.FC<TableOfContentsItemProps> = React.memo(
  */
 const TableOfContents: React.FC = () => {
   const pathname = usePathname();
+  //const router = useRouter();
 
-  const headings = useHeadings("article :is(h2, h3, h4, h5, h6)");
-
+  const headings = useHeadings("article :is(h2, h3, h4, h5, h6)", pathname);
+console.log({headings, pathname})
   const [activeId, setActiveId] = useState<string | undefined>(headings[0]?.id);
   const [isCollapsible, setIsCollapsible] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -91,8 +93,8 @@ const TableOfContents: React.FC = () => {
     const handleResize = () => {
       setIsCollapsible(window.innerWidth < 1024);
     };
-
-    handleResize(); // Check initial screen width
+    // Check initial screen width
+    handleResize();
 
     window.addEventListener("resize", handleResize);
     return () => {
@@ -103,6 +105,13 @@ const TableOfContents: React.FC = () => {
   const toggleCollapse = () => {
     setIsCollapsed((prevCollapsed) => !prevCollapsed);
   };
+  console.log({pathname})
+  // useEffect(() => {
+  //   const handleRouteChange = () => {
+  //     // Rebuild the menu on route change
+  //     setActiveId(headings[0]?.id);
+  //   };
+  // }, [pathname headings]);
 
   if (!isCollapsible) {
     return (

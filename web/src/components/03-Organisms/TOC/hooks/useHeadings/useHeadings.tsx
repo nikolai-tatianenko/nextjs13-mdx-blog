@@ -13,7 +13,7 @@ type Heading = {
  * @returns {Heading[]} - Array of headings.
  */
 export const useHeadings = (
-  headingQuery = "article :is(h1, h2, h3, h4, h5, h6)"
+  headingQuery = "article :is(h1, h2, h3, h4, h5, h6)", pathname: string
 ): Heading[] => {
   const [headings, setHeadings] = useState<Heading[]>([]);
 
@@ -36,6 +36,11 @@ export const useHeadings = (
   useEffect(() => {
     getHeaders();
   }, []);
+
+  useEffect(() => {
+    getHeaders();
+
+  }, [pathname]);
 
   return headings;
 };
