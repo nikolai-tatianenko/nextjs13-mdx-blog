@@ -1,67 +1,8 @@
-"use client";
-import cx from "classnames";
+"use client"
 import React, { useEffect, useState } from "react";
-import { useHeadings, useScrollspy } from "./hooks";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
-
-type TableOfContentsItemProps = {
-  id: string;
-  level: number;
-  title: string;
-  isActive: boolean;
-};
-
-/**
- * Table of Contents Item component.
- *
- * @param {TableOfContentsItemProps} props - Component properties.
- * @returns {JSX.Element} - Rendered component.
- */
-const TableOfContentsItem: React.FC<TableOfContentsItemProps> = React.memo(
-  ({ id, level, title, isActive }) => {
-
-    const headerClassname =
-      "block border-b-2 p-2 m-2 w-full text-md mb-3 w-[50%] text-center";
-    const focusItemClass = "font-bold text-gray-900 border-l-gray-900";
-
-    const hoverItemClass = focusItemClass.split(" ").
-      map((val) => `hover:${val}`).
-      join(" ");
-
-    const activeItemClass = focusItemClass.split(" ").
-      map((val) => `active:${val}`).
-      join(" ");
-
-    const linkClassNames = cx(
-      `level-${level}`,
-      "block border-l-2 border-accent-2 p-2 text-sm transition-all duration-500 focus:outline-none focus:ring hover:bg-gray-200",
-      hoverItemClass,
-      activeItemClass,
-      {
-        [`${focusItemClass}`]: isActive,
-        "active-toc-item": isActive
-      }
-    );
-
-    const paddingSize = 8;
-    const paddingLeft = (level - 1) * paddingSize;
-
-    if (level === 1) {
-      return (
-        <a href={`#${id}`} className={headerClassname} style={{ paddingLeft }}>
-          {title}
-        </a>
-      );
-    }
-
-    return (
-      <a href={`#${id}`} className={linkClassNames} style={{ paddingLeft }}>
-        {title}
-      </a>
-    );
-  }
-);
+import { useHeadings, useScrollspy } from "./hooks";
+import { TableOfContentsItem } from "@/components/03-Organisms/TOC/TableOfContentsItem";
 
 /**
  * Table of Contents component.
@@ -70,17 +11,32 @@ const TableOfContentsItem: React.FC<TableOfContentsItemProps> = React.memo(
  */
 const TableOfContents: React.FC = () => {
   const pathname = usePathname();
-  //const router = useRouter();
-
   const headings = useHeadings("article :is(h2, h3, h4, h5, h6)", pathname);
-console.log({headings, pathname})
   const [activeId, setActiveId] = useState<string | undefined>(headings[0]?.id);
-  const [isCollapsible, setIsCollapsible] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsible, setIsCollapsible] = useState(true);
+
+  const toggleCollapse = () => {
+    setIsCollapsed((prevCollapsed) => !prevCollapsed);
+  };
+
+  const handleResize = () => {
+    setIsCollapsible(window.innerWidth < 1024);
+  };
 
   useEffect(() => {
     setActiveId(headings[0]?.id);
   }, [headings]);
+
+  useEffect(() => {
+    handleResize();
+    const debouncedHandleResize = debounce(handleResize, 200);
+
+    window.addEventListener("resize", debouncedHandleResize);
+    return () => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
+  }, []);
 
   useScrollspy(
     headings.map((heading) => heading.id),
@@ -88,30 +44,6 @@ console.log({headings, pathname})
       setActiveId(newActiveId);
     }
   );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsCollapsible(window.innerWidth < 1024);
-    };
-    // Check initial screen width
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const toggleCollapse = () => {
-    setIsCollapsed((prevCollapsed) => !prevCollapsed);
-  };
-  console.log({pathname})
-  // useEffect(() => {
-  //   const handleRouteChange = () => {
-  //     // Rebuild the menu on route change
-  //     setActiveId(headings[0]?.id);
-  //   };
-  // }, [pathname headings]);
 
   if (!isCollapsible) {
     return (
@@ -160,3 +92,12 @@ console.log({headings, pathname})
 };
 
 export default TableOfContents;
+
+// Debounce function for resize event
+function debounce(func: Function, delay: number) {
+  let timeoutId: NodeJS.Timeout;
+  return function (...args: any[]) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+}
