@@ -31,7 +31,7 @@ describe("Menu", () => {
     expect(aboutLink).not.toHaveClass("underline");
     expect(contactLink).not.toHaveClass("underline");
   });
-  
+
   test("renders the menu component with default link style", () => {
     const menuItems = [
       { label: "Home", path: "/home" },

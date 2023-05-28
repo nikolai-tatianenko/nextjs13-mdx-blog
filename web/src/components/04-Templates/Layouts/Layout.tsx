@@ -2,7 +2,7 @@ import Footer from '@/components/04-Templates/Layouts/Footer';
 import LeftSideBar from '@/components/04-Templates/Layouts/LeftSideBar';
 import A11yLink, { A11yAnchor } from '@/components/01-Atoms/UI/A11yLink';
 import BackToTop from '@/components/01-Atoms/UI/BackToTop/BackToTop';
-import TOC from '@/components/01-Atoms/UI/TOC/TOC';
+import TOC from '@/components/03-Organisms/TOC/TOC';
 import React from 'react';
 import Header from './Header';
 import SideBar from './SideBar';
