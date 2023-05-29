@@ -3,11 +3,11 @@ const nextConfig = {
   output: 'export',
   typescript: {
     ignoreBuildErrors: true,
-    // ignoreBuildErrors: process.env.ENV === 'production',
+    // ignoreBuildErrors: process.env.NODE_ENV === 'production',
   },
   eslint: {
     ignoreDuringBuilds: true,
-    // ignoreDuringBuilds: process.env.ENV === 'production',
+    // ignoreDuringBuilds: process.env.NODE_ENV === 'production',
   },
 };
 
