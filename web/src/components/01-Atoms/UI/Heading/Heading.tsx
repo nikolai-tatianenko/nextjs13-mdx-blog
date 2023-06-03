@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 /**
  * Props for the Header component.
@@ -27,14 +27,14 @@ export type HeaderProps = {
  * @param text | null The text to generate the ID from.
  * @returns The generated ID.
  */
-const prepareId = (text: React.ReactNode = ""): string => {
-  if (typeof text !== "string") {
-    text = "";
+const prepareId = (text: React.ReactNode = ''): string => {
+  if (typeof text !== 'string') {
+    text = '';
   }
-  return String(text).
-    toLowerCase().
-    replace(/[^a-z0-9]+/g, "-").
-    replace(/(^-|-$)/g, "");
+  return String(text)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
 };
 
 /**
@@ -47,9 +47,9 @@ const prepareId = (text: React.ReactNode = ""): string => {
  */
 export const Heading: FC<HeaderProps> = ({
   level = 1,
-  children = "",
+  children = '',
   className,
-  id
+  id,
 }) => {
   const TagName = `h${level}` as keyof JSX.IntrinsicElements;
   const headerId = id || prepareId(children);

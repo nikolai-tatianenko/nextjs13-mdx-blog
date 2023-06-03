@@ -1,6 +1,5 @@
-import './globals.css';
-import React from 'react';
 import Layout from '@/components/04-Templates/Layouts/Layout';
+import './globals.css';
 
 export const metadata = {
   title: 'Create Next App',

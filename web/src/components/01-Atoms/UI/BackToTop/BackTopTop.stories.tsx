@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import BackToTop from "./BackToTop";
+import { Meta, StoryObj } from '@storybook/react';
+import BackToTop from './BackToTop';
 
 /**
  * Component that displays the BackToTopButton storybook.
@@ -80,9 +80,9 @@ const BackTopTopComp = () => (
  * The meta information for the BackToTopButton storybook.
  */
 const meta: Meta = {
-  title: "UI/Components/BackToTop",
+  title: 'UI/Components/BackToTop',
   component: BackTopTopComp,
-  tags: ["autodocs", "docsPage"]
+  tags: ['autodocs', 'docsPage'],
 };
 
 export default meta;
@@ -96,6 +96,6 @@ type Story = StoryObj<typeof BackTopTopComp>;
  */
 export const Primary: Story = {
   args: {
-    primary: true
-  }
+    primary: true,
+  },
 };

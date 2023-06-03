@@ -5,4 +5,4 @@ export type MenuItems = {
   className?: string;
   target?: string;
   id?: string;
-}
+};
