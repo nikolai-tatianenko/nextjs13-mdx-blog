@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "npx lerna run dev --stream",
+    "format": "npx prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +22,8 @@
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
     "husky": "^8.0.3",
-    "lerna": "^6.5.0"
+    "lerna": "^6.5.0",
+    "prettier": "2.8.5"
   },
   "husky": {
     "hooks": {
