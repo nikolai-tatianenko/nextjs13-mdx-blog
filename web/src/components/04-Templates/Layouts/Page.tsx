@@ -1,5 +1,5 @@
-import { MdxContentWrapper } from '@/components/MdxContentWrapper';
 import { Heading } from '@/components/01-Atoms/UI';
+import { MdxContentWrapper } from '@/components/MdxContentWrapper';
 import { Frontmatter, Post } from '@/types/Page';
 
 /**
@@ -17,7 +17,7 @@ const Page: React.FC<{ pageContent: Post<Frontmatter> }> = ({
       <header className="mb-4">
         <Heading
           level={1}
-          className="text-4xl font-bold mb-2 sm:text-5xl md:text-6xl lg:text-7xl"
+          className="mb-2 text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
         >
           {pageContent.frontmatter.title}
         </Heading>

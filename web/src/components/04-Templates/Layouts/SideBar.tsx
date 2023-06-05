@@ -1,19 +1,28 @@
+/**
+ * Side bar.
+ */
 type SideBarProps = {
   id?: string;
   className?: string;
   children?: React.ReactNode;
-}
+};
+
+/**
+ * Side bar.
+ * @param id
+ * @param className
+ * @param children
+ * @constructor
+ */
 export const SideBar: React.FC<SideBarProps> = ({
   id,
   className,
-  children
+  children,
 }) => {
   return (
     <aside
       id={id}
-      className={
-        `fixed inset-0 z-20 hidden h-full w-72 flex-none lg:static lg:block lg:h-auto lg:w-48 lg:overflow-y-visible lg:pt-0 ${className}`
-      }
+      className={`fixed inset-0 z-20 hidden h-full w-72 flex-none lg:static lg:block lg:h-auto lg:w-48 lg:overflow-y-visible lg:pt-0 ${className}`}
     >
       <div
         id="navWrapper"
