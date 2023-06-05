@@ -1,1 +1,1 @@
-export * from './pagesHierarchyListGroup'
+export * from './pagesHierarchyListGroup';

@@ -1,10 +1,9 @@
-import React from "react";
-import { Meta, Story } from "@storybook/react";
-import TableOfContents from "./TOC";
+import { Meta, Story } from '@storybook/react';
+import TableOfContents from './TOC';
 
 export default {
-  title: "Table of Contents",
-  component: TableOfContents
+  title: 'Table of Contents',
+  component: TableOfContents,
 } as Meta;
 
 const Template: Story = () => {
@@ -12,7 +11,7 @@ const Template: Story = () => {
   const headings = Array.from({ length: 6 }, (_, index) => ({
     id: `heading${index + 1}`,
     title: `Heading ${index + 1}`,
-    level: index + 1
+    level: index + 1,
   }));
 
   const paragraphs = Array.from({ length: 5 }, (_, index) => (

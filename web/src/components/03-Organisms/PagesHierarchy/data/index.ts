@@ -1,1 +1,1 @@
-export * from './defaultSectionListItems'
+export * from './defaultSectionListItems';

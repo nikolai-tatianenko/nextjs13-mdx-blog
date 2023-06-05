@@ -1,8 +1,8 @@
-"use client"
-import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { useHeadings, useScrollspy } from "./hooks";
-import { TableOfContentsItem } from "@/components/03-Organisms/TOC/TableOfContentsItem";
+'use client';
+import { TableOfContentsItem } from '@/components/03-Organisms/TOC/TableOfContentsItem';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import { useHeadings, useScrollspy } from './hooks';
 
 /**
  * Table of Contents component.
@@ -11,7 +11,7 @@ import { TableOfContentsItem } from "@/components/03-Organisms/TOC/TableOfConten
  */
 const TableOfContents: React.FC = () => {
   const pathname = usePathname();
-  const headings = useHeadings("article :is(h2, h3, h4, h5, h6)", pathname);
+  const headings = useHeadings('article :is(h2, h3, h4, h5, h6)', pathname);
   const [activeId, setActiveId] = useState<string | undefined>(headings[0]?.id);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isCollapsible, setIsCollapsible] = useState(true);
@@ -32,9 +32,9 @@ const TableOfContents: React.FC = () => {
     handleResize();
     const debouncedHandleResize = debounce(handleResize, 200);
 
-    window.addEventListener("resize", debouncedHandleResize);
+    window.addEventListener('resize', debouncedHandleResize);
     return () => {
-      window.removeEventListener("resize", debouncedHandleResize);
+      window.removeEventListener('resize', debouncedHandleResize);
     };
   }, []);
 

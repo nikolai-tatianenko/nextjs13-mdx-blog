@@ -1,11 +1,9 @@
-import React from "react";
-import {
-  PagesHierarchyListMenuProps
-} from "@/components/03-Organisms/PagesHierarchy/types/listLinkType";
-import NewIcon from "@/components/01-Atoms/NewIcon";
+import NewIcon from '@/components/01-Atoms/NewIcon';
+import { PagesHierarchyListMenuProps } from '@/components/03-Organisms/PagesHierarchy/types/listLinkType';
+import React from 'react';
 
 export const PagesHierarchyListMenu: React.FC<PagesHierarchyListMenuProps> = ({
-  pages
+  pages,
 }) => {
   return (
     <ul className="list-unstyled fw-normal small py-1">

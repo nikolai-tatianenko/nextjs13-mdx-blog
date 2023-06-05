@@ -1,2 +1,2 @@
-export * from './PagesHierarchyListMenu'
 export * from './PagesHierarchyList';
+export * from './PagesHierarchyListMenu';

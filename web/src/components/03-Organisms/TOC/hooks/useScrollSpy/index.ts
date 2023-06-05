@@ -1,1 +1,1 @@
-export * from "./useScrollSpy";
+export * from './useScrollSpy';

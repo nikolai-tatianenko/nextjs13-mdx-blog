@@ -1,14 +1,10 @@
-import React from "react";
-import {
-  PagesHierarchyListMenuProps
-} from "@/components/03-Organisms/PagesHierarchy/types/listLinkType";
-import { Heading } from "@/components/01-Atoms/UI";
-import {
-  PagesHierarchyListMenu
-} from "@/components/03-Organisms/PagesHierarchy/components/PagesHierarchyListMenu";
+import { Heading } from '@/components/01-Atoms/UI';
+import { PagesHierarchyListMenu } from '@/components/03-Organisms/PagesHierarchy/components/PagesHierarchyListMenu';
+import { PagesHierarchyListMenuProps } from '@/components/03-Organisms/PagesHierarchy/types/listLinkType';
+import React from 'react';
 
 export const PagesHierarchyList: React.FC<PagesHierarchyListMenuProps> = ({
-  sectionProps
+  sectionProps,
 }) => {
   const { name, pages } = sectionProps;
 

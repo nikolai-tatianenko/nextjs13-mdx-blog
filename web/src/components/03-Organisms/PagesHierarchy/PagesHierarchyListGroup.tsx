@@ -1,11 +1,11 @@
-import React from "react";
-import { PagesHierarchyList } from "./components";
-import { PagesHierarchyListGroupProps } from "./types/listLinkType";
-import { defaultSectionList } from "./data/defaultSectionListItems";
+import React from 'react';
+import { PagesHierarchyList } from './components';
+import { defaultSectionList } from './data/defaultSectionListItems';
+import { PagesHierarchyListGroupProps } from './types/listLinkType';
 
-export const PagesHierarchyListGroup: React.FC<PagesHierarchyListGroupProps> = ({
-  sectionList = defaultSectionList
-}) => {
+export const PagesHierarchyListGroup: React.FC<
+  PagesHierarchyListGroupProps
+> = ({ sectionList = defaultSectionList }) => {
   return (
     <nav
       id="nav"

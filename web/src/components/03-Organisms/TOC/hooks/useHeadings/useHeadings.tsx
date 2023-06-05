@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 type Heading = {
   id: string;
@@ -14,7 +14,7 @@ type Heading = {
  * @returns {Heading[]} - Array of headings.
  */
 export const useHeadings = (
-  headingQuery = "article :is(h1, h2, h3, h4, h5, h6)",
+  headingQuery = 'article :is(h1, h2, h3, h4, h5, h6)',
   pathname: string
 ): Heading[] => {
   const [headings, setHeadings] = useState<Heading[]>([]);
@@ -27,7 +27,7 @@ export const useHeadings = (
         if (element.id) {
           acc.push({
             id: element.id,
-            title: element.textContent || "",
+            title: element.textContent || '',
             level: Number(element.tagName.substring(1)),
           });
         }
@@ -40,6 +40,9 @@ export const useHeadings = (
     getHeaders();
   }, [headingQuery]);
 
+  /**
+   * Update headings when pathname changes.
+   */
   useEffect(() => {
     const getHeaders = (): void => {
       const elements = Array.from(
@@ -48,7 +51,7 @@ export const useHeadings = (
         if (element.id) {
           acc.push({
             id: element.id,
-            title: element.textContent || "",
+            title: element.textContent || '',
             level: Number(element.tagName.substring(1)),
           });
         }

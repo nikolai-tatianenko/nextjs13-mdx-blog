@@ -1,2 +1,2 @@
-export * from "./useHeadings";
-export * from "./useScrollSpy";
+export * from './useHeadings';
+export * from './useScrollSpy';
