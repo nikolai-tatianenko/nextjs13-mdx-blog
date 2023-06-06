@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
+/**
+ * Heading type.
+ */
 type Heading = {
   id: string;
   title: string;
@@ -19,50 +22,33 @@ export const useHeadings = (
 ): Heading[] => {
   const [headings, setHeadings] = useState<Heading[]>([]);
 
-  useEffect(() => {
-    const getHeaders = (): void => {
-      const elements = Array.from(
-        document.querySelectorAll<HTMLHeadingElement>(headingQuery)
-      ).reduce<Heading[]>((acc, element) => {
-        if (element.id) {
-          acc.push({
-            id: element.id,
-            title: element.textContent || '',
-            level: Number(element.tagName.substring(1)),
-          });
-        }
-        return acc;
-      }, []);
+  const getHeaders = useCallback(() => {
+    if (!document || !document.querySelectorAll) {
+      return;
+    }
 
-      setHeadings(elements);
-    };
+    const elements = Array.from(
+      document.querySelectorAll<HTMLHeadingElement>(headingQuery)
+    ).reduce<Heading[]>((acc, element) => {
+      if (element.id) {
+        acc.push({
+          id: element.id,
+          title: element.textContent || '',
+          level: Number(element.tagName.substring(1)),
+        });
+      }
+      return acc;
+    }, []);
 
-    getHeaders();
+    setHeadings(elements);
   }, [headingQuery]);
 
   /**
-   * Update headings when pathname changes.
+   * Get headings on mount and when pathname changes.
    */
   useEffect(() => {
-    const getHeaders = (): void => {
-      const elements = Array.from(
-        document.querySelectorAll<HTMLHeadingElement>(headingQuery)
-      ).reduce<Heading[]>((acc, element) => {
-        if (element.id) {
-          acc.push({
-            id: element.id,
-            title: element.textContent || '',
-            level: Number(element.tagName.substring(1)),
-          });
-        }
-        return acc;
-      }, []);
-
-      setHeadings(elements);
-    };
-
     getHeaders();
-  }, [pathname]);
+  }, [getHeaders, pathname]);
 
   return headings;
 };
