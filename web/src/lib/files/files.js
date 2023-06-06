@@ -6,6 +6,11 @@
 import fs from 'fs';
 import path from 'path';
 
+/**
+ * Retrieves all files recursively from a given folder.
+ * @param folder
+ * @returns {string[]}
+ */
 export const getAllFilesRecursively = (folder) => {
   /**
    * Retrieve all files and directories within the specified folder.
@@ -32,6 +37,14 @@ export const getAllFilesRecursively = (folder) => {
 
   return filePaths;
 };
+
+/**
+ * Retrieves all files recursively from a given folder.
+ *
+ * @param folderPath
+ * @param level
+ * @returns {*[]}
+ */
 
 export function getFilesInFolder(folderPath, level = 0) {
   const files = [];
