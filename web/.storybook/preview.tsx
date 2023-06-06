@@ -4,12 +4,12 @@
 import { Preview } from '@storybook/nextjs';
 
 import {
-  Title,
-  Subtitle,
+  Controls,
   Description,
   Primary,
-  Controls,
   Stories,
+  Subtitle,
+  Title,
 } from '@storybook/blocks';
 
 import {

@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 /**
  * The default theme used when no theme is specified.
