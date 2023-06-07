@@ -31,7 +31,7 @@ export async function getMdxFileContent(filePath: string) {
  * @param {string} [locale=''] - The locale of the files (optional).
  * @returns {string[]} - An array containing the prepared file names.
  */
-export function getMdxFiles(type = 'page', locale = '') {
+export function getAllMdxFiles(type = 'page', locale = '') {
   const prefixPaths = path.join(root, 'data', type);
 
   // Retrieve all files recursively

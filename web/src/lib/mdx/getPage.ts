@@ -6,11 +6,10 @@
  * @param {string} fileExtension - The extension of the file (default: 'mdx').
  * @returns {Promise<Post<Frontmatter>>} - The page data.
  */
-import { Frontmatter, Post } from '@/types/Page';
-import path from 'path';
-import { getMdxFileContent, getMdxFiles } from './mdx';
+import { Frontmatter, Post } from "@/types/Page";
+import { getAllMdxFiles, getMdxFileContent } from "./mdx";
+import { prepareFilePath } from "@/lib/files/files";
 
-const root = process.cwd();
 
 /**
  * Retrieves the page data for a given file.
@@ -24,10 +23,11 @@ export async function getPage(
   file: string,
   fileExtension = 'mdx'
 ): Promise<Post<Frontmatter>> {
+
   /**
    * Construct the filepath for the given file.
    */
-  const filePath = path.join(root, 'data', type, `${file}.${fileExtension}`);
+  const filePath = prepareFilePath(type, file, fileExtension);
   return await getMdxFileContent(filePath);
 }
 
@@ -36,7 +36,7 @@ export async function getPage(
  */
 
 export async function getAllPages() {
-  const pages = getMdxFiles('page');
+  const pages = getAllMdxFiles('page');
   return pages;
 }
 
@@ -44,6 +44,6 @@ export async function getAllPages() {
  * Retrieves all the pages for a given type.
  */
 export async function getAllPagesNames() {
-  const pages = getMdxFiles('page');
+  const pages = getAllMdxFiles('page');
   return pages;
 }
