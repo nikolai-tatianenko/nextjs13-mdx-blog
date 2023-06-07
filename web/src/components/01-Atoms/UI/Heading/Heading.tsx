@@ -53,7 +53,7 @@ export const Heading: FC<HeaderProps> = ({
 }) => {
   const TagName = `h${level}` as keyof JSX.IntrinsicElements;
   const headerId = id || prepareId(children);
-  console.log({ level, children, className, id });
+
   return (
     <TagName id={headerId} className={className}>
       {children}

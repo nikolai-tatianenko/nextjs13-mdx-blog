@@ -1,5 +1,5 @@
 'use client';
-import { TableOfContentsItem } from '@/components/03-Organisms/TOC/TableOfContentsItem';
+import { TableOfContentsItem } from './TableOfContentsItem';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { useHeadings, useScrollspy } from './hooks';

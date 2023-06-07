@@ -65,8 +65,6 @@ const HeaderMenu: React.FC = ({
   const listItemClass =
     'block py-3 pl-2 pr-3 text-gray-900 rounded  dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 hover:underline-offset-1 dark:hover:text-white md:dark:hover:bg-transparent';
 
-  console.log({ isMenuOpen });
-
   const classNames = {
     wrapper: `${isMenuOpen ? '' : 'hidden'} w-full md:block md:w-auto`,
     menuNav: 'mt-3 flex flex-col rounded-lg p-3 font-medium md:flex-row md:p-1',
