@@ -10,7 +10,6 @@ import { Frontmatter, Post } from "@/types/Page";
 import { getAllMdxFiles, getMdxFileContent } from "./mdx";
 import { prepareFilePath } from "@/lib/files/files";
 
-
 /**
  * Retrieves the page data for a given file.
  *
