@@ -8,6 +8,7 @@ import fs from "fs";
 import path from "path";
 
 const root = process.cwd();
+
 /**
  * Prepares the file path for the given file.
  * @param type
@@ -25,23 +26,23 @@ export const prepareFilePath = (
 
 /**
  * Retrieves all files recursively from a given folder.
- * @param folder
- * @returns {string[]}
+ * @param {string} folder - The folder path.
+ * @returns {string[]} - An array containing the paths of all the files found.
  */
-export const getAllFilesRecursively = (folder) => {
+export const getAllFilesRecursively = (folder: string): string[] => {
   /**
    * Retrieve all files and directories within the specified folder.
    * @type {fs.Dirent[]}
    */
-  const entries = fs.readdirSync(folder, { withFileTypes: true });
+  const entries: fs.Dirent[] = fs.readdirSync(folder, { withFileTypes: true });
 
   /**
    * Recursively traverse the folder structure to find all files.
    * @param {string} folderPath - The path of the folder to search.
    * @returns {string[]} - An array containing the paths of all the files found.
    */
-  const filePaths = entries.flatMap((entry) => {
-    const fullPath = path.join(folder, entry.name);
+  const filePaths: string[] = entries.flatMap((entry: fs.Dirent) => {
+    const fullPath: string = path.join(folder, entry.name);
 
     if (entry.isFile()) {
       return [fullPath];
