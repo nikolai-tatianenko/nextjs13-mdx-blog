@@ -8,18 +8,15 @@ const Tags = async () => {
   const tags = await getAllTags();
   return (
     <div>
-      <ul>
-        {Object.entries(tags).map(([tag, tagData], key) => {
-          return (
-            <li key={key}>
-              <Link href={`/tags/${tag}`}>
-                <span className={"hover:underline"}>
-                  {tagData.name}
-                </span><span className={"ml-2"}>({tagData.count})</span>
-              </Link>
-            </li>
-          );
-        })}
+      <ul className={"max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"}>
+        {Object.entries(tags).map(([tag, tagData], key) => (
+          <li key={key} >
+            <Link href={`/tags/${tag}`}>
+              <span className="hover:underline">{tagData.name}</span>
+            </Link>
+            <span className="ml-2">({tagData.count})</span>
+          </li>
+        ))}
       </ul>
     </div>
   );
