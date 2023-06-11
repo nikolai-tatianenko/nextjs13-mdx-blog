@@ -3,9 +3,9 @@
  * @param {string} folder - The path of the folder to search for files.
  * @returns {string[]} - An array containing the paths of all the files found.
  */
-import fs from "fs";
+import fs from 'fs';
 
-import path from "path";
+import path from 'path';
 
 const root = process.cwd();
 
@@ -18,9 +18,9 @@ const root = process.cwd();
 export const prepareFilePath = (
   type: string,
   file: string,
-  fileExtension = "mdx"
+  fileExtension = 'mdx'
 ) => {
-  const filePath = path.join(root, "data", type, `${file}.${fileExtension}`);
+  const filePath = path.join(root, 'data', type, `${file}.${fileExtension}`);
   return filePath;
 };
 
@@ -64,7 +64,7 @@ export const getAllFilesRecursively = (folder: string): string[] => {
  * @returns {*[]}
  */
 
-export function getFilesInFolder (folderPath, level = 0) {
+export function getFilesInFolder(folderPath, level = 0) {
   const files = [];
 
   // Read the contents of the folder
@@ -82,7 +82,7 @@ export function getFilesInFolder (folderPath, level = 0) {
       // Add file information to the array
       files.push({
         filepath: itemPath,
-        level: level
+        level: level,
       });
     } else if (stats.isDirectory()) {
       // Recursively call the function for nested folders
