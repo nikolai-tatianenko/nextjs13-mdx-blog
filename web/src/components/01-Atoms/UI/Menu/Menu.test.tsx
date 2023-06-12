@@ -18,6 +18,7 @@ describe('Menu', () => {
     const menuItems = [
       { label: 'Home', path: '/home' },
       { label: 'About', path: '/about' },
+      { label: 'Tags', path: '/tags' },
       { label: 'Contact', path: '/contact' },
     ];
 
@@ -36,6 +37,7 @@ describe('Menu', () => {
     const menuItems = [
       { label: 'Home', path: '/home' },
       { label: 'About', path: '/about' },
+      { label: 'Tags', path: '/tags' },
       { label: 'Contact', path: '/contact' },
     ];
 
