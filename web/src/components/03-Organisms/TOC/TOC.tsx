@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { TableOfContentsItem } from './TableOfContentsItem';
 import { useHeadings, useScrollspy } from './hooks';
+import { Heading } from '@/components/01-Atoms';
 
 /**
  * Table of Contents component.
@@ -42,15 +43,19 @@ const TableOfContents: React.FC = () => {
     headings.map((heading) => heading.id),
     (newActiveId) => {
       setActiveId(newActiveId);
-    }
+    },
   );
-
+  if (headings.length === 0) {
+    return null;
+  }
   if (!isCollapsible) {
     return (
-      <div>
-        <div className="mb-4 flex items-center gap-4">
-          <div>Table of contents</div>
-        </div>
+      <div className={'mt-8'}>
+        <Heading level={5}
+                 className={
+                   'mb-2 text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-white lg:text-xs'}>
+          Table of contents
+        </Heading>
         <div>
           {headings.map((heading) => (
             <TableOfContentsItem
@@ -68,12 +73,11 @@ const TableOfContents: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 w-full bg-white opacity-60 lg:hidden">
-      <div
-        className="mb-4 flex cursor-pointer items-center gap-4"
-        onClick={toggleCollapse}
-      >
-        <div>Table of contents</div>
-      </div>
+      <Heading level={2}
+               className={'text-center mb-4 flex cursor-pointer items-center gap-4'}
+               onClick={toggleCollapse}>
+        Table of contents
+      </Heading>
       {!isCollapsed && (
         <div>
           {headings.map((heading) => (
@@ -94,9 +98,9 @@ const TableOfContents: React.FC = () => {
 export default TableOfContents;
 
 // Debounce function for resize event
-function debounce(func: Function, delay: number) {
+function debounce (func: Function, delay: number) {
   let timeoutId: NodeJS.Timeout;
-  return function (...args: any[]) {
+  return (...args: any[]) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => func.apply(this, args), delay);
   };
