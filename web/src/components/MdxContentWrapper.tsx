@@ -1,6 +1,7 @@
 'use client';
 
 import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { useState } from 'react';
 import { Heading } from './01-Atoms/UI';
 
 /**
@@ -8,6 +9,7 @@ import { Heading } from './01-Atoms/UI';
  */
 type MdxContentProps = {
   source: MDXRemoteSerializeResult;
+  maxLength?: number;
 };
 
 /**
@@ -29,6 +31,48 @@ const mdxComponentsMap = {
  * @param {MdxContentProps} props - The properties for the MDX content component.
  * @returns {JSX.Element} - The rendered MDX content.
  */
-export function MdxContentWrapper({ source }: MdxContentProps) {
-  return <MDXRemote {...source} components={mdxComponentsMap} />;
-}
+export const MdxContentWrapper: React.FC<MdxContentProps> = ({
+  source,
+  maxLength = 200,
+}) => {
+  const [trimmedContent, setTrimmedContent] = useState<string | null>(null);
+
+  const handleClickReadMore = () => {
+    setTrimmedContent(null);
+  };
+
+  if (maxLength && !trimmedContent && source.length > maxLength) {
+    const trimmedText = source.slice(0, maxLength);
+    const lastSpaceIndex = trimmedText.lastIndexOf(' ');
+    const trimmedContentWithEllipsis =
+      trimmedText.slice(0, lastSpaceIndex) + '...';
+
+    return (
+      <>
+        {trimmedContentWithEllipsis}
+        <button
+          onClick={handleClickReadMore}
+          className="text-blue-500 hover:underline"
+        >
+          Read More
+        </button>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <MDXRemote {...source} components={mdxComponentsMap} />
+      {trimmedContent && (
+        <button
+          onClick={handleClickReadMore}
+          className="text-blue-500 hover:underline"
+        >
+          Read More
+        </button>
+      )}
+    </>
+  );
+};
+
+export default MdxContentWrapper;
