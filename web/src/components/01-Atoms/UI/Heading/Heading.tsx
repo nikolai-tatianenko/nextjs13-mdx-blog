@@ -20,6 +20,7 @@ export type HeaderProps = {
    * Optional ID for the header.
    */
   id?: string;
+  [key: string]: any;
 };
 
 /**
@@ -50,12 +51,13 @@ export const Heading: FC<HeaderProps> = ({
   children = '',
   className,
   id,
+  ...params
 }) => {
   const TagName = `h${level}` as keyof JSX.IntrinsicElements;
   const headerId = id || prepareId(children);
 
   return (
-    <TagName id={headerId} className={className}>
+    <TagName id={headerId} className={className} {...params}>
       {children}
     </TagName>
   );
