@@ -41,7 +41,9 @@ export const MdxContentWrapper: React.FC<MdxContentProps> = ({
     setTrimmedContent(null);
   };
 
+  // @ts-ignore
   if (maxLength && !trimmedContent && source.length > maxLength) {
+    // @ts-ignore
     const trimmedText = source.slice(0, maxLength);
     const lastSpaceIndex = trimmedText.lastIndexOf(' ');
     const trimmedContentWithEllipsis =
