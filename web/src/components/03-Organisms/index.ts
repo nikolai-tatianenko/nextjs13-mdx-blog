@@ -1,2 +1,2 @@
-export * from './TOC'
-export * from './PagesHierarchy'
+export * from './PagesHierarchy';
+export * from './TOC';

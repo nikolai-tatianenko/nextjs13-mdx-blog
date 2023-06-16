@@ -1,9 +1,9 @@
 'use client';
+import { Heading } from '@/components/01-Atoms';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { TableOfContentsItem } from './TableOfContentsItem';
 import { useHeadings, useScrollspy } from './hooks';
-import { Heading } from '@/components/01-Atoms';
 
 /**
  * Table of Contents component.
@@ -43,7 +43,7 @@ const TableOfContents: React.FC = () => {
     headings.map((heading) => heading.id),
     (newActiveId) => {
       setActiveId(newActiveId);
-    },
+    }
   );
   if (headings.length === 0) {
     return null;
@@ -51,9 +51,12 @@ const TableOfContents: React.FC = () => {
   if (!isCollapsible) {
     return (
       <div className={'mt-8'}>
-        <Heading level={5}
-                 className={
-                   'mb-2 text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-white lg:text-xs'}>
+        <Heading
+          level={5}
+          className={
+            'mb-2 text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-white lg:text-xs'
+          }
+        >
           Table of contents
         </Heading>
         <div>
@@ -73,9 +76,11 @@ const TableOfContents: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 w-full bg-white opacity-60 lg:hidden">
-      <Heading level={2}
-               className={'text-center mb-4 flex cursor-pointer items-center gap-4'}
-               onClick={toggleCollapse}>
+      <Heading
+        level={2}
+        className={'mb-4 flex cursor-pointer items-center gap-4 text-center'}
+        onClick={toggleCollapse}
+      >
         Table of contents
       </Heading>
       {!isCollapsed && (
@@ -98,7 +103,7 @@ const TableOfContents: React.FC = () => {
 export default TableOfContents;
 
 // Debounce function for resize event
-function debounce (func: Function, delay: number) {
+function debounce(func: Function, delay: number) {
   let timeoutId: NodeJS.Timeout;
   return (...args: any[]) => {
     clearTimeout(timeoutId);

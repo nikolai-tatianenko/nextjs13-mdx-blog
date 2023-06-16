@@ -1,3 +1,3 @@
-export * from './HorizontalLine'
-export * from './NewIcon'
-export * from './UI'
+export * from './HorizontalLine';
+export * from './NewIcon';
+export * from './UI';

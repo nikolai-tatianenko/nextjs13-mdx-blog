@@ -7,10 +7,8 @@ import React from 'react';
 export const HorizontalLine: React.FC = () => {
   return (
     <div className="inline-flex w-full items-center justify-center">
-      <hr
-        className="my-8 h-1 w-64 rounded border-0 bg-gray-200 dark:bg-gray-700"/>
-      <div
-        className="absolute left-1/2 -translate-x-1/2 bg-white px-4 dark:bg-gray-900">
+      <hr className="my-8 h-1 w-64 rounded border-0 bg-gray-200 dark:bg-gray-700" />
+      <div className="absolute left-1/2 -translate-x-1/2 bg-white px-4 dark:bg-gray-900">
         <svg
           aria-hidden="true"
           className="h-5 w-5 text-gray-700 dark:text-gray-300"

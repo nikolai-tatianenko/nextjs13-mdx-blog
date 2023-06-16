@@ -1,6 +1,5 @@
 import Page from '@/components/04-Templates/Layouts/Page';
 import { getAllPagesForTag } from '@/lib/mdx/getTags';
-import React from 'react';
 
 /**
  * Renders the tags list page.
