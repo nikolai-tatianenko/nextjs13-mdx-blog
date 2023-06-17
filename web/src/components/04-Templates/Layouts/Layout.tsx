@@ -16,7 +16,7 @@ import SideBar from './SideBar';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={'flex min-h-screen flex-col bg-white text-gray-900'}>
+      <body className={'flex min-h-screen flex-col bg-white text-gray-900 dark:bg-gray-900'}>
         <A11yLink />
         <Header />
         <div className={'max-w-8xl mx-auto w-full max-w-7xl px-4'}>

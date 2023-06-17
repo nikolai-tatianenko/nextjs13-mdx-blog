@@ -6,6 +6,7 @@
  * @description Renders a navigation menu with menu items
  */
 
+import {  ThemeSwitcher } from '@/components/01-Atoms';
 import { Logo } from '@/components/01-Atoms/UI/Logo/Logo';
 import { Menu } from '@/components/01-Atoms/UI/Menu/Menu';
 import { menuItemsDefault } from '@/components/01-Atoms/UI/Menu/MenuItemsDefault';
@@ -92,6 +93,7 @@ const HeaderMenu: React.FC = ({
             <span className={'text-xl'}>{isMenuOpen ? 'x' : '≡'}</span>
           </button>
           <Menu menuItems={menuItems} classNames={classNames} />
+          <ThemeSwitcher/>
         </div>
       </nav>
     </>
