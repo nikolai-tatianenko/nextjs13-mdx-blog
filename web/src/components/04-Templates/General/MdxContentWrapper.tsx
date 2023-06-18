@@ -2,7 +2,7 @@
 
 import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { useState } from 'react';
-import { Heading } from './01-Atoms/UI';
+import { Heading } from '../../01-Atoms/UI';
 
 /**
  * The properties for the MDX content component.
