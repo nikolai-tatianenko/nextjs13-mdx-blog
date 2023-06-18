@@ -21,8 +21,8 @@ export async function generateStaticParams() {
  * @param {string} params.page - The page name.
  * @returns {ReactElement} - The rendered dynamic page.
  */
-const PostPage = async ({ params }: { params: { page: string } }) => {
-  const pageContent = await getPage('post', params.page);
+const PostPage = async ({ params }: { params: { post: string } }) => {
+  const pageContent = await getPage('post', params.post);
   return <Page pageContent={pageContent} />;
 };
 
