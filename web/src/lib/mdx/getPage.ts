@@ -33,15 +33,15 @@ export async function getPage(
  * Retrieves all the pages for a given type.
  */
 
-export async function getAllPages() {
-  const pages = getAllMdxFiles('page');
+export async function getAllPages(type = 'page') {
+  const pages = getAllMdxFiles(type);
   return pages;
 }
 
 /**
  * Retrieves all the pages for a given type.
  */
-export async function getAllPagesNames() {
-  const pages = getAllMdxFiles('page');
+export async function getAllPagesNames(type = 'page') {
+  const pages = getAllMdxFiles(type);
   return pages;
 }

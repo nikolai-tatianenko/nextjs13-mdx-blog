@@ -9,6 +9,10 @@
       "path": "/about"
     },
     {
+      "label": "Posts",
+      "path": "/post"
+    },
+    {
       "label": "Tags",
       "path": "/tags"
     },
@@ -18,8 +22,5 @@
     }
   ],
   "mainLanguage": "en",
-  "languages": [
-    "en",
-    "es"
-  ]
+  "languages": ["en", "es"]
 }

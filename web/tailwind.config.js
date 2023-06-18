@@ -1,10 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}',
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   // Toggle dark-mode based on class or data-mode=”dark”.
-  darkMode: ["class"],
+  darkMode: ['class'],
   theme: {
     extend: {
       backgroundImage: {
@@ -14,5 +12,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require('@tailwindcss/typography')],
 };

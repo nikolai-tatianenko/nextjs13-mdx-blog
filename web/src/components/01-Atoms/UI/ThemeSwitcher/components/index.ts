@@ -1,4 +1,3 @@
-export * from "./DarkMode";
-export * from "./LightMode";
-export * from "./SystemMode";
-
+export * from './DarkMode';
+export * from './LightMode';
+export * from './SystemMode';

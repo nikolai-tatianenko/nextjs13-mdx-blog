@@ -1,8 +1,7 @@
 import { CONTENT_PUBLISHED } from '@/lib/mdx/consts';
 import { getPage } from '@/lib/mdx/getPage';
+import { prepareString } from '@/lib/utils/prepareString';
 import { getAllMdxFiles } from './mdx';
-
-const kebabCase = (str) => str.toLowerCase().replace(/\s/g, '-');
 
 /**
  * The type for the tags list.
@@ -21,12 +20,12 @@ type TagsList = {
  */
 export async function getAllTags(type = 'page'): TagsList {
   const files = await getAllMdxFiles(type);
-  console.log('files:::', { files });
+
   let tagCount: TagsList = {};
 
   // Iterate through each post, putting all found tags into `tags`
   for (const file of files) {
-    const source = await getPage('page', file);
+    const source = await getPage(type, file);
     if (
       !(
         source.frontmatter.tags &&
@@ -38,7 +37,7 @@ export async function getAllTags(type = 'page'): TagsList {
     // return 'test';
     // const source = fs.readFileSync(path.join(root, "data", type, file), "utf8");
     source.frontmatter.tags.forEach((tag) => {
-      const newTag = kebabCase(tag);
+      const newTag = prepareString(tag);
       if (tagCount[newTag] === undefined) {
         tagCount[newTag] = {
           count: 1,
@@ -79,7 +78,7 @@ export async function getAllPagesForTag(
     }
 
     const preparedTags = source.frontmatter.tags.map((pageTag: string) =>
-      kebabCase(pageTag)
+      prepareString(pageTag)
     );
     if (preparedTags.includes(tag)) {
       pages.push(source);

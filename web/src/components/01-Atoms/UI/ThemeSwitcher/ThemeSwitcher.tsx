@@ -1,15 +1,14 @@
-"use client";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { DarkMode, LightMode } from "./components";
-
+'use client';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import { DarkMode, LightMode } from './components';
 
 /**
  * ThemeSwitcher component.
  */
-const LightModeType = "light";
-const DarkModeType = "dark";
-const SystemModeType = "system";
+const LightModeType = 'light';
+const DarkModeType = 'dark';
+const SystemModeType = 'system';
 
 /**
  * ThemeSwitcher component.
@@ -22,34 +21,37 @@ export const ThemeSwitcher = () => {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return (<div className="flex items-center"></div>);
+  if (!mounted) return <div className="flex items-center"></div>;
 
   // @ts-ignore
   return (
     <div className="flex items-center">
-      {(theme === DarkModeType) && (<button
-        aria-label="Toggle Light Mode"
-        type="button"
-        className={`ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4 ${
-          (theme === LightModeType || resolvedTheme === LightModeType) &&
-          "bg-gray-200"
-        }`}
-        onClick={() => setTheme(LightModeType)}
-      >
-        <LightMode />
-      </button>)}
-      {(theme === LightModeType) && (
+      {theme === DarkModeType && (
+        <button
+          aria-label="Toggle Light Mode"
+          type="button"
+          className={`ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4 ${
+            (theme === LightModeType || resolvedTheme === LightModeType) &&
+            'bg-gray-200'
+          }`}
+          onClick={() => setTheme(LightModeType)}
+        >
+          <LightMode />
+        </button>
+      )}
+      {theme === LightModeType && (
         <button
           aria-label="Toggle Dark Mode"
           type="button"
           className={`ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4 ${
             (theme === DarkModeType || resolvedTheme === DarkModeType) &&
-            "bg-gray-800"
+            'bg-gray-800'
           }`}
           onClick={() => setTheme(DarkModeType)}
         >
           <DarkMode />
-        </button>)}
+        </button>
+      )}
       {/*<button*/}
       {/*  aria-label="Toggle System Mode"*/}
       {/*  type="button"*/}
