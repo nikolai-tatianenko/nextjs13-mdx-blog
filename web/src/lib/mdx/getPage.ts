@@ -26,7 +26,13 @@ export async function getPage(
    * Construct the filepath for the given file.
    */
   const filePath = prepareFilePath(type, file, fileExtension);
-  return await getMdxFileContent(filePath);
+  const fileContent = await getMdxFileContent(filePath);
+
+  return {
+    ...fileContent,
+    type: type,
+    file: file,
+  };
 }
 
 /**
