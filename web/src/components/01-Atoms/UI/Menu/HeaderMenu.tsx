@@ -10,7 +10,7 @@ import { Menu } from '@/components/01-Atoms/UI/Menu/Menu';
 import { menuItemsDefault } from '@/components/01-Atoms/UI/Menu/MenuItemsDefault';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
-import ThemeSwitch from '../ThemeSwitcher/ThemeSwitch';
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 /**
  * Represents a menu item with a path and label.
@@ -92,7 +92,7 @@ const HeaderMenu: React.FC = ({
             <span className={'text-xl'}>{isMenuOpen ? 'x' : '≡'}</span>
           </button>
           <Menu menuItems={menuItems} classNames={classNames} />
-          <ThemeSwitch />
+          <ThemeSwitcher />
         </div>
       </nav>
     </>
