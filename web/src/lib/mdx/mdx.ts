@@ -1,26 +1,36 @@
 const root = process.cwd();
 import { Frontmatter } from '@/types/Page';
 import { promises as fs } from 'fs';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import { getAllFilesRecursively } from '../files/files';
+
 //getFilesInFolder
 export async function getMdxFileContent(filePath: string) {
   // Read the file from the filesystem.
   const raw = await fs.readFile(filePath, 'utf-8');
-  // add to trimmedRaw trimmint to 200 symbols.
-  const trimmedRaw = raw.split('---').slice(2).toString().slice(0, 200);
 
   // Serialize the MDX content and parse the frontmatter.
   const serialized = await serialize(raw, {
     parseFrontmatter: true,
   });
-  const serializedTrimmed = await serialize(trimmedRaw, {
-    parseFrontmatter: true,
-  });
 
   // Typecast the frontmatter to the correct type
   const frontmatter = serialized.frontmatter as Frontmatter;
+  let serializedTrimmed: MDXRemoteSerializeResult;
+  if (frontmatter.summary === undefined) {
+    // add to trimmedRaw trimmint to 200 symbols.
+    const trimmedRaw = raw.split('---').slice(2).toString().slice(0, 200);
+
+    serializedTrimmed = await serialize(trimmedRaw, {
+      parseFrontmatter: true,
+    });
+  } else {
+    serializedTrimmed = await serialize(frontmatter.summary, {
+      parseFrontmatter: true,
+    });
+  }
 
   // Return the serialized content and frontmatter
   return {

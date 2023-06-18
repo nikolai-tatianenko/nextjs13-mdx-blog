@@ -6,6 +6,8 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 export type Frontmatter = {
   title: string;
   creationDate: string;
+  status: string;
+  summary?: string;
 };
 
 export type Post<T> = {
