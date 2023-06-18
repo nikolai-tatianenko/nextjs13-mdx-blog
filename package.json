@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "npx lerna run dev --stream",
     "format": "npx prettier --write .",
+    "commit": "npx cz",
     "graph": "npx nx graph",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.3",
     "lerna": "^7.0.2",
     "prettier": "2.8.8"
@@ -37,5 +39,10 @@
   ],
   "dependencies": {
     "next-themes": "^0.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
