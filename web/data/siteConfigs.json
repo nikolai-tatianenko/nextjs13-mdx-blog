@@ -1,25 +1,22 @@
 {
   "mainMenu": [
     {
-      label: 'Home',
-      path: '/home'
+      "label": "Home",
+      "path": "/home"
     },
     {
-      label: 'About',
-      path: '/about'
+      "label": "About",
+      "path": "/about"
     },
     {
-      label: 'Tags',
-      path: '/tags'
+      "label": "Tags",
+      "path": "/tags"
     },
     {
-      label: 'Contact',
-      path: '/contact'
+      "label": "Contact",
+      "path": "/contact"
     }
   ],
-  'mainLanguage': 'en',
-  'languages': [
-    'en',
-    'es'
-  ]
+  "mainLanguage": "en",
+  "languages": ["en", "es"]
 }

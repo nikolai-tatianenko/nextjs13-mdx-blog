@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "npx lerna run dev --stream",
     "format": "npx prettier --write .",
+    "lint-format": "npx lerna run lint-format",
     "commit": "npx cz",
     "graph": "npx nx graph",
     "test": "echo \"Error: no test specified\" && exit 1"

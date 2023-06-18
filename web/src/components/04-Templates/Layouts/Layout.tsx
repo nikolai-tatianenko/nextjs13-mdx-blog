@@ -3,10 +3,10 @@ import BackToTop from '@/components/01-Atoms/UI/BackToTop/BackToTop';
 import TOC from '@/components/03-Organisms/TOC/TOC';
 import Footer from '@/components/04-Templates/Layouts/Footer';
 import LeftSideBar from '@/components/04-Templates/Layouts/LeftSideBar';
+import Button from '@local/ds';
 import React from 'react';
 import Header from './Header';
 import SideBar from './SideBar';
-import Button from '@local/ds'
 /**
  * Layout.
  *
@@ -16,7 +16,11 @@ import Button from '@local/ds'
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={'flex min-h-screen flex-col bg-white text-gray-900 dark:bg-gray-900'}>
+      <body
+        className={
+          'flex min-h-screen flex-col bg-white text-gray-900 dark:bg-gray-900'
+        }
+      >
         <A11yLink />
         <Header />
         <div className={'max-w-8xl mx-auto w-full max-w-7xl px-4'}>
@@ -34,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     'pb:12 min-w-0 max-w-4xl flex-auto pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24'
                   }
                 >
-                  <Button/>
+                  <Button />
                   <A11yAnchor />
                   {children}
                 </div>
