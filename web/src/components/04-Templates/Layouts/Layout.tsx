@@ -3,7 +3,7 @@ import BackToTop from '@/components/01-Atoms/UI/BackToTop/BackToTop';
 import TOC from '@/components/03-Organisms/TOC/TOC';
 import Footer from '@/components/04-Templates/Layouts/Footer';
 import LeftSideBar from '@/components/04-Templates/Layouts/LeftSideBar';
-import Button from '@local/ds';
+import { Button } from '@local/ds';
 import React from 'react';
 import Header from './Header';
 import SideBar from './SideBar';
