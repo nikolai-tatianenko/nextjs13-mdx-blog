@@ -18,5 +18,8 @@
     }
   ],
   "mainLanguage": "en",
-  "languages": ["en", "es"]
+  "languages": [
+    "en",
+    "es"
+  ]
 }

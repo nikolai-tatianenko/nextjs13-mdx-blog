@@ -10,7 +10,7 @@ import { useHeadings, useScrollspy } from './hooks';
  *
  * @returns {JSX.Element} - Rendered component.
  */
-const TableOfContents: React.FC = () => {
+export const TableOfContents: React.FC = () => {
   const pathname = usePathname();
   const headings = useHeadings('article :is(h2, h3, h4, h5, h6)', pathname);
   const [activeId, setActiveId] = useState<string | undefined>(headings[0]?.id);
