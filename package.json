@@ -7,9 +7,16 @@
     "dev": "npx lerna run dev --stream",
     "format": "npx prettier --write .",
     "lint-format": "npx lerna run lint-format",
+    "lint:format": "eslint . --fix && prettier --write . && npm run lint-format",
     "commit": "npx cz",
     "graph": "npx nx graph",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "npm run lint:format"
+    }
   },
   "repository": {
     "type": "git",
@@ -25,9 +32,12 @@
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "lerna": "^7.0.2",
-    "prettier": "2.8.8"
+    "prettier": "^2.8.8"
   },
   "husky": {
     "hooks": {
