@@ -22,7 +22,7 @@ const Page: React.FC<{ pageContent: Post<Frontmatter> }> = ({
           {pageContent.frontmatter.title}
         </Heading>
         <p className="text-sm">
-          <time dateTime="2008-02-14 20:00">
+          <time dateTime={pageContent.frontmatter.creationDate}>
             {pageContent.frontmatter.creationDate}
           </time>
         </p>

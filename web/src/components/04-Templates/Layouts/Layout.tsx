@@ -1,5 +1,5 @@
 import A11yLink, { A11yAnchor } from '@/components/01-Atoms/UI/A11yLink';
-import BackToTop from '@/components/01-Atoms/UI/BackToTop/BackToTop';
+import BackToTop from '@/components/02-Molecules/BackToTop/BackToTop';
 import { TableOfContents } from '@/components/03-Organisms';
 
 import {
