@@ -1,0 +1,16 @@
+{
+  "name": "@local/ds",
+  "version": "0.0.0",
+  "description": "Design System and components",
+  "keywords": [
+    "Design System"
+  ],
+  "author": "Nikolai Tatianenko <nikolai.tatianenko@gmail.com>",
+  "homepage": "https://github.com/nikolai-tatianenko/nextjs13-mdx-blog/tree/main/ds#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^18.2.0",
+    "typescript": "^5.1.3"
+  }
+}
