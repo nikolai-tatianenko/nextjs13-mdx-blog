@@ -1,4 +1,4 @@
-import NewIcon from '@/components/01-Atoms/NewIcon';
+import NewIcon from '@/components/01-Atoms/UI/NewIcon';
 import { PagesHierarchyListMenuProps } from '@/components/03-Organisms/PagesHierarchy/types/listLinkType';
 import React from 'react';
 
