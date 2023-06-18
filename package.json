@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/nikolai-tatianenko/nextjs13-mdx-blog.git"
   },
-  "author": "",
+  "author": "Nikolai Tatianenko <nikolai.tatianenko@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nikolai-tatianenko/nextjs13-mdx-blog/issues"

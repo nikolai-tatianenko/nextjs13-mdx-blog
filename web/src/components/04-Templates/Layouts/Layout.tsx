@@ -6,7 +6,7 @@ import LeftSideBar from '@/components/04-Templates/Layouts/LeftSideBar';
 import React from 'react';
 import Header from './Header';
 import SideBar from './SideBar';
-
+import Button from '@local/ds'
 /**
  * Layout.
  *
@@ -34,6 +34,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     'pb:12 min-w-0 max-w-4xl flex-auto pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24'
                   }
                 >
+                  <Button/>
                   <A11yAnchor />
                   {children}
                 </div>
