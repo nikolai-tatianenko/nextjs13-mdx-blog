@@ -1,5 +1,5 @@
 import { Heading } from '@/components/01-Atoms/UI';
-import { MdxContentWrapper } from '@/components/MdxContentWrapper';
+import { MdxContentWrapper } from '@/components/04-Templates/General/MdxContentWrapper';
 import { Frontmatter, Post } from '@/types/Page';
 
 /**

@@ -8,7 +8,7 @@ interface FooterProps {
  * Footer.
  * @constructor
  */
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="m-4 rounded-lg bg-white shadow dark:bg-gray-800">
       <div className="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
