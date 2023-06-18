@@ -8,9 +8,13 @@
   "author": "Nikolai Tatianenko <nikolai.tatianenko@gmail.com>",
   "homepage": "https://github.com/nikolai-tatianenko/nextjs13-mdx-blog/tree/main/ds#readme",
   "license": "ISC",
-  "main": "index.js",
+  "main": "index.ts",
   "dependencies": {
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.22",
     "typescript": "^5.1.3"
   }
 }
