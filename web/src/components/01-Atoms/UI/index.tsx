@@ -1,5 +1,4 @@
 export * from './A11yLink';
-export * from './BackToTop';
 export * from './Heading';
 export * from './Heading/Heading';
 export * from './HorizontalLine';
@@ -7,3 +6,4 @@ export * from './Logo/Logo';
 export * from './Menu/Menu';
 export * from './NewIcon';
 export * from './ThemeSwitcher/ThemeSwitcher';
+export * from './EmptyComponent';
