@@ -7,6 +7,7 @@
  * @returns {Promise<Post<Frontmatter>>} - The page data.
  */
 import { prepareFilePath } from '@/lib/files/files';
+import { CONTENT_PUBLISHED } from '@/lib/mdx/consts';
 import { Frontmatter, Post } from '@/types/Page';
 import { getAllMdxFiles, getMdxFileContent } from './mdx';
 
@@ -40,8 +41,17 @@ export async function getPage(
  */
 
 export async function getAllPages(type = 'page') {
-  const pages = getAllMdxFiles(type);
-  return pages;
+  const files = await getAllMdxFiles(type);
+  const pageList = [];
+  for (const file of files) {
+    const source = await getPage(type, file);
+    if (!(source.frontmatter.status === CONTENT_PUBLISHED)) {
+      continue;
+    }
+    pageList.push(source);
+  }
+
+  return pageList;
 }
 
 /**
