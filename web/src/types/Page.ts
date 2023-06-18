@@ -11,4 +11,7 @@ export type Frontmatter = {
 export type Post<T> = {
   serialized: MDXRemoteSerializeResult;
   frontmatter: T;
+  serializedTrimmed: MDXRemoteSerializeResult;
+  type: string;
+  file: string;
 };
