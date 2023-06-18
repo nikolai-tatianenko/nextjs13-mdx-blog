@@ -49,18 +49,17 @@ export default function Layout ({ children }: { children: React.ReactNode }) {
                 <A11yAnchor />
                 {children}
               </div>
-
-              <SideBar id={"right_sidebar"} className={"mt-8 pt-8"}>
-                <nav
-                  id="nav"
-                  className="sticky?lg:h-(screen-18) px-1 pb-10 pl-3 pt-16 text-base font-normal lg:pb-20 lg:pl-0 lg:pt-2 lg:text-sm"
-                  aria-label="Docs navigation"
-                >
-                  <TableOfContents />
-                </nav>
-              </SideBar>
             </div>
           </main>
+          <SideBar id={"right_sidebar"} className={"mt-8 pt-8"}>
+            <nav
+              id="nav"
+              className="sticky?lg:h-(screen-18) px-1 pb-10 pl-3 pt-16 text-base font-normal lg:pb-20 lg:pl-0 lg:pt-2 lg:text-sm"
+              aria-label="Docs navigation"
+            >
+              <TableOfContents />
+            </nav>
+          </SideBar>
         </div>
       </div>
       <BackToTop />
