@@ -1,8 +1,7 @@
-import Page from '@/components/04-Templates/Layouts/Page';
+import { HorizontalLine, MdxContentWrapper } from '@/components';
+import TagsList from '@/components/02-Molecules/TagsList';
 import { getAllPages } from '@/lib/mdx/getPage';
-import { HorizontalLine, MdxContentWrapper } from "@/components";
-import Link from "next/link";
-import TagsList from "@/components/02-Molecules/TagsList";
+import Link from 'next/link';
 
 /**
  * Renders the dynamic posts list page.
@@ -17,7 +16,7 @@ const PostList: () => Promise<JSX.Element> = async () => {
       <MdxContentWrapper source={pageContent.serializedTrimmed} />
       {/*{pageContent.frontmatter.tags.join(',')}*/}
       <TagsList tagsList={pageContent.frontmatter.tags} />
-      <HorizontalLine/>
+      <HorizontalLine />
     </Link>
   ));
 };
