@@ -8,9 +8,14 @@ import { getAllFilesRecursively } from '../files/files';
 export async function getMdxFileContent(filePath: string) {
   // Read the file from the filesystem.
   const raw = await fs.readFile(filePath, 'utf-8');
+  // add to trimmedRaw trimmint to 200 symbols.
+  const trimmedRaw = raw.split('---').slice(2).toString().slice(0, 200);
 
   // Serialize the MDX content and parse the frontmatter.
   const serialized = await serialize(raw, {
+    parseFrontmatter: true,
+  });
+  const serializedTrimmed = await serialize(trimmedRaw, {
     parseFrontmatter: true,
   });
 
@@ -21,6 +26,7 @@ export async function getMdxFileContent(filePath: string) {
   return {
     frontmatter,
     serialized,
+    serializedTrimmed,
   };
 }
 
