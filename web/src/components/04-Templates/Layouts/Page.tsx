@@ -1,6 +1,7 @@
 import { Heading } from '@/components/01-Atoms/UI';
 import { MdxContentWrapper } from '@/components/04-Templates/General/MdxContentWrapper';
 import { Frontmatter, Post } from '@/types/Page';
+import React from 'react';
 
 /**
  * Renders a page component with the specified content.

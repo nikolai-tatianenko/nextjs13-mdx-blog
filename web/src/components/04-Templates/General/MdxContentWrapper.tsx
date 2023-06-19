@@ -1,8 +1,7 @@
 'use client';
-
 import { EmptyComponent } from '@/components/01-Atoms/UI/EmptyComponent';
 import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Heading } from '../../01-Atoms/UI';
 
 /**

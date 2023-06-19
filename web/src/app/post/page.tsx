@@ -1,16 +1,14 @@
-import { Heading, HorizontalLine, MdxContentWrapper } from "@/components";
-import TagsList from "@/components/02-Molecules/TagsList/TagsList";
-import { getAllPages } from "@/lib/mdx/getPage";
-import Link from "next/link";
-import { EmptyComponent } from "@/components/01-Atoms/UI/EmptyComponent";
+import { Heading, HorizontalLine, MdxContentWrapper } from '@/components';
+import TagsList from '@/components/02-Molecules/TagsList/TagsList';
+import { getAllPages } from '@/lib/mdx/getPage';
+import Link from 'next/link';
 
 /**
  * Renders the dynamic posts list page.
  * @constructor
  */
 const PostList = async (): Promise<JSX.Element> => {
-  const pagesContent = await getAllPages("post");
-
+  const pagesContent = await getAllPages('post');
 
   console.log(pagesContent);
   return (
