@@ -28,7 +28,7 @@ const Page: React.FC<{ pageContent: Post<Frontmatter> }> = ({
           </time>
         </p>
       </header>
-      <article>
+      <article className={'prose lg:prose-xl'}>
         <MdxContentWrapper source={pageContent.serialized} />
       </article>
     </div>
