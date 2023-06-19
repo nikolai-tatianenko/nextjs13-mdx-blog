@@ -78,7 +78,6 @@ function filterFileByLocale(files: string[], locale = '', extension = ['md']) {
   return files.filter((filePath) => {
     const fileExtension = path.extname(filePath).replace('.', '');
     const baseName = path.basename(filePath, '.' + fileExtension);
-    const test = (baseName.match(/\./g) || []).length;
 
     if (locale === '') {
       return (
@@ -109,6 +108,12 @@ function prepareFileNames(
   return files.map((file) => {
     const filePath = file.slice(prefixPaths.length + 1).replace(/\\/g, '/');
     const fileExtension = path.extname(filePath);
+
+    // Check if the file extension is valid.
+    if (!extension.includes(fileExtension.replace('.', ''))) {
+      return '';
+    }
+
     const baseFileName = path.basename(filePath, fileExtension);
     return baseFileName;
   });
