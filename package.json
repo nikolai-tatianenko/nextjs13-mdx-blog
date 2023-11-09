@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://nikolai-tatianenko.github.io/nextjs13-mdx-blog",
   "scripts": {
+    "build": "npx lerna run build --stream",
     "dev": "npx lerna run dev --stream",
     "format": "npx prettier --write .",
     "lint-format": "npx lerna run lint-format",
@@ -20,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/nikolai-tatianenko/nextjs13-mdx-blog/issues"
   },
-  "homepage": "https://github.com/nikolai-tatianenko/nextjs13-mdx-blog#readme",
+  "homepage": "https://nikolai-tatianenko.github.io/next-text",
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",

@@ -12,6 +12,7 @@
     "lint": "next lint",
     "lint-format": "next lint -- --fix && prettier --write .",
     "docs": "typedoc",
+    "deploy": "npm run build && npx gh-pages -d out",
     "storybook": "concurrently \"npm:watch:*\"",
     "build-storybook": "concurrently \"npm:build:*\"",
     "build:css": "npx tailwindcss -i ./src/tailwind.css -o ./public/tailwind.css",

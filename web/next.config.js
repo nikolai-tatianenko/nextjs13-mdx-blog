@@ -9,6 +9,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
     // ignoreDuringBuilds: process.env.NODE_ENV === 'production',
   },
+  output: "export",
+  basePath: "/nextjs13-mdx-blog",
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;
